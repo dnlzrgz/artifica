@@ -1,0 +1,13 @@
+<article class="applet applet--notes applet-size-lg">
+  <header class="applet__header">
+    <h1 class="applet__header__title">{{value.title}}</h1>
+  </header>
+  <main class="applet__content applet--notes__content">
+    {% for note in value.notes %}
+    <details>
+      <summary>{{note.title}}</summary>
+      {{note.content}}
+    </details>
+    {% endfor %}
+  </main>
+</article>

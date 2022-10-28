@@ -1,0 +1,14 @@
+<article class="applet applet--social-links applet--size-md">
+  <header class="applet__header">
+    <h1 class="applet__header__title">{{value.title}}</h1>
+  </header>
+  <main class="applet__content applet--social-links__content">
+    <ul>
+      {% for link in value.links %}
+      <li>
+        <a href="{{link.url}}" alt="{{link.title}}">{{link.title}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </main>
+</article>

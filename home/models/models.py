@@ -6,6 +6,10 @@ from .applets import AppletsBlock
 
 
 class HomePage(Page):
+    """
+    Home page model.
+    """
+
     applets = StreamField(
         AppletsBlock(),
         null=True,

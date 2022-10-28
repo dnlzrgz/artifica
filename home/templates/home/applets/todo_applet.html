@@ -1,0 +1,12 @@
+<article class="applet applet--todo applet--size-lg">
+  <header class="applet__header">
+    <h1 class="applet__header__title">{{value.title}}</h1>
+    <main class="applet__content applet--todo__content">
+      <ul>
+        {% for task in value.tasks %}
+        <li>{{task}}</li>
+        {% endfor %}
+      </ul>
+    </main>
+  </header>
+</article>
