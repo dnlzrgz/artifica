@@ -24,30 +24,29 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    "home",
-    "search",
-    "tailwind",
-    "theme",
-    "wagtail.contrib.forms",
-    "wagtail.contrib.redirects",
-    "wagtail.embeds",
-    "wagtail.sites",
-    "wagtail.users",
-    "wagtail.snippets",
-    "wagtail.documents",
-    "wagtail.images",
-    "wagtail.search",
-    "wagtail.admin",
-    "wagtail",
-    "modelcluster",
-    "taggit",
+    "compressor",
     "django_browser_reload",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
-    "django.contrib.sessions",
     "django.contrib.messages",
+    "django.contrib.sessions",
     "django.contrib.staticfiles",
+    "home",
+    "modelcluster",
+    "search",
+    "taggit",
+    "wagtail.admin",
+    "wagtail.contrib.forms",
+    "wagtail.contrib.redirects",
+    "wagtail.documents",
+    "wagtail.embeds",
+    "wagtail.images",
+    "wagtail.search",
+    "wagtail.sites",
+    "wagtail.snippets",
+    "wagtail.users",
+    "wagtail",
 ]
 
 MIDDLEWARE = [
@@ -85,12 +84,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "portfolio.wsgi.application"
 
-# Tailwind
-TAILWIND_APP_NAME = "theme"
-
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -142,11 +135,17 @@ USE_TZ = True
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
 ]
 
 STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, "static"),
 ]
+
+
+# Compressor
+COMPRESS_ENABLED = True
+
 
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
 # JavaScript / CSS assets being served from cache (e.g. after a Wagtail upgrade).

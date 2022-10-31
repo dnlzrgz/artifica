@@ -1,5 +1,4 @@
-{% load static wagtailcore_tags wagtailuserbar %}
-{% load static tailwind_tags %}
+{% load compress static wagtailcore_tags wagtailuserbar %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +22,9 @@
         {% endif %}
 
         {# Global stylesheets #}
-		{% tailwind_css %}
+        {% compress css %}
+        <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+        {% endcompress %}
     </head>
 
     <body class="bg-teal-300 max-w-screen max-h-screen">

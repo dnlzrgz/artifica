@@ -926,6 +926,9 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
+# Static cache
+static/CACHE
+
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 

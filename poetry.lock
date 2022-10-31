@@ -144,20 +144,6 @@ rcssmin = "1.1.0"
 rjsmin = "1.2.0"
 
 [[package]]
-name = "django-compressor-toolkit"
-version = "0.6.0"
-description = "Set of add-ons for django-compressor"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-django-compressor = ">=1.5"
-
-[package.extras]
-test = ["django (>=1.8,<2.0)", "pytest (>=3.0,<4.0)", "pytest-cov (>=2.4,<3.0)", "pytest-django (>=3.0,<4.0)", "pytest-pythonpath (>=0.7,<1.0)"]
-
-[[package]]
 name = "django-filter"
 version = "22.1"
 description = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
@@ -207,18 +193,6 @@ python-versions = ">=3.6"
 
 [package.dependencies]
 Django = ">=3.2"
-
-[[package]]
-name = "django-tailwind"
-version = "3.4.0"
-description = "Tailwind CSS Framework for Django projects"
-category = "dev"
-optional = false
-python-versions = ">=3.8,<4.0"
-
-[package.dependencies]
-django = ">=3.2.14"
-django-browser-reload = ">=1.6.0,<2.0.0"
 
 [[package]]
 name = "django-treebeard"
@@ -565,7 +539,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "0fa8c3172383e7d5dff93541d358eb38b308fd30ae4a3c66c132e44b88e2c341"
+content-hash = "7c93453d8308592f4377fa2dd6822def0d2de034cd737d1a72a07da94fae946a"
 
 [metadata.files]
 anyascii = [
@@ -635,9 +609,6 @@ django-compressor = [
     {file = "django_compressor-4.1-py2.py3-none-any.whl", hash = "sha256:61f313852b4c8d4ef2534cda3d2366f45ca3e399b3cbe10590e516cc6b45542d"},
     {file = "django_compressor-4.1.tar.gz", hash = "sha256:8ece621d2a98f6c6635480cb8b3701db890a99f793f95ca20cb00abc194d331d"},
 ]
-django-compressor-toolkit = [
-    {file = "django-compressor-toolkit-0.6.0.tar.gz", hash = "sha256:c0640559512f8a8a693fc7a374ca5a8fbca84c0ee0b90268e979d04a2f6bb694"},
-]
 django-filter = [
     {file = "django-filter-22.1.tar.gz", hash = "sha256:ed473b76e84f7e83b2511bb2050c3efb36d135207d0128dfe3ae4b36e3594ba5"},
     {file = "django_filter-22.1-py3-none-any.whl", hash = "sha256:ed429e34760127e3520a67f415bec4c905d4649fbe45d0d6da37e6ff5e0287eb"},
@@ -653,10 +624,6 @@ django-permissionedforms = [
 django-taggit = [
     {file = "django-taggit-3.0.0.tar.gz", hash = "sha256:e645b8e3dd4f85989d5ef5c5a3d5ebbe5badf5d1e51b53e42d0af726240b00b9"},
     {file = "django_taggit-3.0.0-py3-none-any.whl", hash = "sha256:ca2df20399a11321db75988404afb640a08eff61e52bde35f6c16f307004ec9e"},
-]
-django-tailwind = [
-    {file = "django-tailwind-3.4.0.tar.gz", hash = "sha256:b0ea5f2e2e45b86f7165673291323e46200a91cfed99b80278272a49f034c7a4"},
-    {file = "django_tailwind-3.4.0-py3-none-any.whl", hash = "sha256:ce47a28b466e2e427534ee5a8c6f2ee7f7ffb6bce83b55b7ec22be994b293b65"},
 ]
 django-treebeard = [
     {file = "django-treebeard-4.5.1.tar.gz", hash = "sha256:80150017725239702054e5fa64dc66e383dc13ac262c8d47ee5a82cb005969da"},
