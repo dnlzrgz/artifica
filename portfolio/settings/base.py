@@ -24,7 +24,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    "compressor",
     "django_browser_reload",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -34,7 +33,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "home",
     "modelcluster",
-    "search",
     "taggit",
     "wagtail.admin",
     "wagtail.contrib.forms",
@@ -135,16 +133,11 @@ USE_TZ = True
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-    "compressor.finders.CompressorFinder",
 ]
 
 STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, "static"),
 ]
-
-
-# Compressor
-COMPRESS_ENABLED = True
 
 
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
