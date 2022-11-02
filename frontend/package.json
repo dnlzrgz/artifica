@@ -2,6 +2,7 @@
   "scripts": {
     "watch-css": "tailwindcss -i ./src/css/style.css -o ../static/css/style.css --watch",
     "watch-js": "esbuild ./src/js/main.js --bundle --watch=forever --outfile=../static/js/main.js",
+    "watch": "concurrently \"npm run watch-css\" \"npm run watch-js\"",
     "build-css": "tailwindcss build -i ./src/css/*.css -o ../static/css/style.css -m",
     "build-js": "esbuild ./src/js/main.js --bundle --minify --sourcemap --outfile=../static/js/main.js",
     "build": "npm run build-css; npm run build-js"
@@ -10,6 +11,7 @@
     "tailwindcss": "^3.2.1"
   },
   "dependencies": {
+    "concurrently": "^7.5.0",
     "esbuild": "^0.15.12",
     "interactjs": "^1.10.17"
   }

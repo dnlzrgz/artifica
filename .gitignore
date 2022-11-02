@@ -927,8 +927,8 @@ FodyWeavers.xsd
 *.sln.iml
 
 # Static files
-static/css/
-static/js/
+static/css/*.css
+static/js/*.js
 
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
