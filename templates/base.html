@@ -1,8 +1,8 @@
-{% load compress static wagtailcore_tags wagtailuserbar %}
+{% load static wagtailcore_tags wagtailuserbar %}
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+  <head>
         <meta charset="utf-8" />
         <title>
             {% block title %}
@@ -22,9 +22,7 @@
         {% endif %}
 
         {# Global stylesheets #}
-        {% compress css %}
-        <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
-        {% endcompress %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
 
     <body class="bg-teal-300 max-w-screen max-h-screen">
@@ -34,9 +32,5 @@
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-
-        {% block extra_js %}
-        {# Override this in templates to add extra javascript #}
-        {% endblock %}
     </body>
 </html>
