@@ -1,11 +1,11 @@
 from wagtail.blocks import (
-    StructBlock,
     CharBlock,
-    RichTextBlock,
-    ListBlock,
-    URLBlock,
     EmailBlock,
+    ListBlock,
+    RichTextBlock,
     StreamBlock,
+    StructBlock,
+    URLBlock,
 )
 from wagtail.embeds.blocks import EmbedBlock
 
