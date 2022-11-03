@@ -1,1 +1,12 @@
-<h1>Video applet</h1>
+{% load wagtailcore_tags %}
+
+<article
+  class="applet absolute max-w-md bg-white rounded-3xl border border-gray-200 shadow-md hover:cursor-grab active:cursor-grabbing"
+>
+  <header class="text-gray-500 bg-gray-50 p-2 text-center rounded-t-3xl">
+    <h1>{{value.title|lower}}</h1>
+  </header>
+  <main class="">
+    <video src="{% include_block value.media.url %}" loop></video>
+  </main>
+</article>
