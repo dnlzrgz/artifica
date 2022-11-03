@@ -7,7 +7,7 @@ from wagtail.blocks import (
     StructBlock,
     URLBlock,
 )
-from wagtail.embeds.blocks import EmbedBlock
+from wagtail.documents.blocks import DocumentChooserBlock
 
 
 class TextualApplet(StructBlock):
@@ -38,7 +38,7 @@ class VideoApplet(StructBlock):
         template = "home/applets/video_applet.html"
 
     title = CharBlock(max_length=20)
-    media = EmbedBlock()
+    media = DocumentChooserBlock()
 
 
 class SocialLinksApplet(StructBlock):
