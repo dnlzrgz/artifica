@@ -1,12 +1,22 @@
-<article class="applet applet--todo applet--size-lg">
-  <header class="applet__header">
-    <h1 class="applet__header__title">{{value.title}}</h1>
-    <main class="applet__content applet--todo__content">
-      <ul>
-        {% for task in value.tasks %}
-        <li>{{task}}</li>
-        {% endfor %}
-      </ul>
-    </main>
+<article
+  class="applet absolute max-w-md bg-white rounded-3xl border border-gray-200 shadow-md hover:cursor-grab active:cursor-grabbing select-none overflow-hidden"
+>
+  <header class="text-gray-500 bg-gray-50 p-2 text-center">
+    <h1>{{value.title|lower}}</h1>
   </header>
+  <main class="applet__body text-lg font-normal px-5 py-7">
+    <ul>
+      {% for task in value.tasks %}
+      <li class="flex items-center mb-2">
+        <input
+          type="checkbox"
+          name="todo-{{task}}"
+          id="todo-{{task}}"
+          class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2"
+        />
+        <label for="todo-{{task}}" class="ml-2 text-gray-900">{{task}}</label>
+      </li>
+      {% endfor %}
+    </ul>
+  </main>
 </article>
