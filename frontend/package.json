@@ -13,6 +13,7 @@
   "dependencies": {
     "concurrently": "^7.5.0",
     "esbuild": "^0.15.12",
+    "flowbite": "^1.5.3",
     "interactjs": "^1.10.17"
   }
 }

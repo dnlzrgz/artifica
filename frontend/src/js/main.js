@@ -1,4 +1,5 @@
 import interact from "interactjs";
+import "flowbite";
 
 interact(".applet").draggable({
   inertia: true,
