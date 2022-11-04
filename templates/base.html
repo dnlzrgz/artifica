@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
 
-    <body class="bg-teal-300 max-w-screen max-h-screen overflow-hidden bg-gradient-to-r from-teal-500  to-teal-600">
+    <body class="flex flex-col gap-3 p-3 md:flex-none md:max-w-screen md:max-h-screen md:overflow-hidden bg-gradient-to-r from-teal-500  to-teal-600">
         {% wagtailuserbar %}
 
         {% block content %}{% endblock %}

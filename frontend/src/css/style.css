@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  .applet {
+    @apply touch-none;
+  }
+
   .applet__body > h2 {
     @apply mb-2 text-2xl font-medium tracking-tight text-gray-900;
   }
