@@ -1,5 +1,7 @@
-import interact from "interactjs";
 import "flowbite";
+import "@interactjs/auto-start";
+import "@interactjs/actions/drag";
+import interact from "@interactjs/interact";
 
 const applets = document.querySelectorAll(".applet");
 const mdSize = 768;
@@ -34,6 +36,11 @@ let zIndex = 1;
 
 applets.forEach((applet) => {
   applet.addEventListener("mousedown", () => {
+    zIndex++;
+    applet.style.zIndex = zIndex;
+  });
+
+  applet.addEventListener("touchstart", () => {
     zIndex++;
     applet.style.zIndex = zIndex;
   });

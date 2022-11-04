@@ -929,6 +929,7 @@ FodyWeavers.xsd
 # Static files
 static/css/*.css
 static/js/*.js
+static/js/*.map
 
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
