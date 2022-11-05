@@ -9,6 +9,7 @@ from wagtail.blocks import (
     URLBlock,
 )
 from wagtail.documents.blocks import DocumentChooserBlock
+from wagtail.images.blocks import ImageChooserBlock
 
 
 class ButtonApplet(StructBlock):
@@ -111,7 +112,7 @@ class TestimoniesApplet(StructBlock):
         StructBlock(
             [
                 ("quote", CharBlock()),
-                ("photo", DocumentChooserBlock()),
+                ("photo", ImageChooserBlock()),
                 ("name", CharBlock()),
                 ("description", CharBlock()),
             ],
