@@ -99,13 +99,13 @@ class SocialLinksApplet(StructBlock):
     )
 
 
-class TestimoniesApplet(StructBlock):
+class TestimonialsApplet(StructBlock):
     """
-    Applet to display testimonies.
+    Applet to display testimonials.
     """
 
     class Meta:
-        template = "home/applets/testimonies_applet.html"
+        template = "home/applets/testimonials_applet.html"
 
     title = CharBlock(max_length=20)
     testimonies = ListBlock(
@@ -116,7 +116,7 @@ class TestimoniesApplet(StructBlock):
                 ("name", CharBlock()),
                 ("description", CharBlock()),
             ],
-            label="testimonies",
+            label="testimonials",
         )
     )
 
@@ -154,7 +154,7 @@ class TimelineApplet(StructBlock):
         StructBlock(
             [
                 ("date", DateBlock()),
-                ("title", CharBlock(max_length=20)),
+                ("title", CharBlock()),
                 ("description", CharBlock()),
             ],
             label="events",
@@ -196,7 +196,7 @@ class AppletsBlock(StreamBlock):
     notes_applet = NotesApplet()
     pomodoro_applet = PomodoroApplet()
     social_links_applet = SocialLinksApplet()
-    testimonies_applet = TestimoniesApplet()
+    # testimonials_applet = TestimonialsApplet()
     textual_applet = TextualApplet()
     timeline_applet = TimelineApplet()
     todo_applet = TodoApplet()
