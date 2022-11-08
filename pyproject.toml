@@ -3,7 +3,7 @@ name = "artifica"
 version = "0.1.0"
 description = ""
 authors = ["daniarlert <arlertdaniel@gmail.com>"]
-license = "MIT"
+license = "GPL-3.0-or-later"
 readme = "README.md"
 
 [tool.poetry.dependencies]
