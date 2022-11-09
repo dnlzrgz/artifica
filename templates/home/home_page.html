@@ -3,5 +3,6 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-{{page.applets}}
+{% include 'home/background.html'  %}
+{{ page.applets }}
 {% endblock content %}
