@@ -1,3 +1,11 @@
+## Unreleased
+
+### Feat
+
+- **home**: improve button-like applets styles
+- **home**: add basic styles to background
+- **home**: update applet headers style
+
 ## v0.2.0 (2022-11-08)
 
 ### Feat

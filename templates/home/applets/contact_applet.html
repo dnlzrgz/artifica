@@ -1,13 +1,23 @@
 <div
   draggable="true"
-  class="applet md:absolute bg-white focus:outline-none px-12 py-3 text-center rounded-lg border border-stone-100 shadow-md active:shadow-lg select-none"
+  class="applet md:absolute bg-white hover:bg-stone-100 focus:outline-none px-12 py-3 text-center rounded-md border border-stone-100 shadow-md active:shadow-lg select-none"
   style="z-index: 1"
 >
   <a
     href="mailto:{{value.email}}"
     alt="contact email"
-    class="text-gray-900 text-xl"
+    class="flex items-center justify-center gap-x-4 text-gray-900"
   >
-    {{value.title}}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 2048 2048"
+      class="w-6 h-6"
+      focusable="false"
+    >
+      <path
+        d="M2048 384v1280H0V384h2048zM143 512l881 441 881-441H143zm1777 1024V648l-896 447-896-447v888h1792z"
+      ></path>
+    </svg>
+    <span class="text-xl">{{value.title}}</span>
   </a>
 </div>
