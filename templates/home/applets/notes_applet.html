@@ -1,6 +1,6 @@
 <article
   draggable="true"
-  class="applet md:absolute max-w-lg bg-white rounded-lg border border-stone-100 shadow-md hover:cursor-grab active:cursor-grabbing active:shadow-lg select-none"
+  class="applet md:absolute w-full max-w-lg bg-white rounded-lg border border-stone-100 shadow-md hover:cursor-grab active:cursor-grabbing active:shadow-lg select-none"
 >
   <header class="text-gray-900 bg-stone-100 py-3 px-6 rounded-t-lg">
     <h1>{{value.title|title}}</h1>
@@ -9,32 +9,32 @@
     id="accordion-flush"
     data-accordion="collapse"
     data-active-classes="bg-white text-gray-900"
-    data-inactive-classes="text-gray-500"
+    data-inactive-classes="text-gray-700"
     class="py-3 px-6"
   >
     {% for note in value.notes %}
     <h2 id="accordion-flush-heading-{{note.title|slugify}}">
       <button
         type="button"
-        class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200"
+        class="flex items-center justify-start gap-x-4 w-full py-3 text-gray-900"
         data-accordion-target="#accordion-flush-body-{{note.title|slugify}}"
         aria-expanded="true"
         aria-controls="accordion-flush-body-{{note.title|slugify}}"
       >
-        <span>{{note.title}}</span>
         <svg
           data-accordion-icon
-          class="w-6 h-6 rotate-180 shrink-0"
-          fill="currentColor"
-          viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 2048 2048"
+          class="w-4 h-4 rotate-180 shrink-0"
+          focusable="false"
         >
           <path
             fill-rule="evenodd"
-            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
             clip-rule="evenodd"
+            d="M1902 1511l-878-878-878 878-121-121 999-999 999 999-121 121z"
           ></path>
         </svg>
+        <span>{{note.title}}</span>
       </button>
     </h2>
     <div
@@ -42,9 +42,7 @@
       class="hidden"
       aria-labelledby="accordion-flush-heading-{{note.title|slugify}}"
     >
-      <div class="py-5 text-gray-500 border-b border-gray-200">
-        {{note.content}}
-      </div>
+      <div class="text-gray-700">{{note.content}}</div>
     </div>
     {% endfor %}
   </main>

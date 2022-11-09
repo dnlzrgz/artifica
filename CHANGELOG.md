@@ -2,6 +2,7 @@
 
 ### Feat
 
+- **home**: improve notes and textual applets styles
 - **home**: improve button-like applets styles
 - **home**: add basic styles to background
 - **home**: update applet headers style
