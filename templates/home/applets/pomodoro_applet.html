@@ -1,13 +1,13 @@
 <article
   draggable="true"
   id="pomodoro"
-  class="applet md:absolute max-w-md bg-white rounded-3xl border border-gray-200 shadow-md hover:cursor-grab active:cursor-grabbing select-none"
+  class="applet md:absolute max-w-lg bg-white rounded-lg border border-stone-100 shadow-md hover:cursor-grab active:cursor-grabbing active:shadow-lg select-none"
 >
-  <header class="text-gray-500 bg-gray-50 p-2 text-center rounded-t-3xl">
-    <h1>{{value.title|lower}}</h1>
+  <header class="text-gray-900 bg-stone-100 py-3 px-6 rounded-t-lg">
+    <h1>{{value.title|title}}</h1>
   </header>
 
-  <main class="flex flex-col gap-y-11 px-10 py-7">
+  <main class="flex flex-col gap-y-3 px-6 py-3">
     <div class="text-center">
       <span class="text-7xl font-light">25:00</span>
     </div>

@@ -1,9 +1,13 @@
 <div
   draggable="true"
-  class="applet md:absolute text-gray-900 text-lg bg-white focus:outline-none px-14 py-5 text-center rounded-full border border-gray-200 shadow-md select-none"
+  class="applet md:absolute bg-white focus:outline-none px-12 py-3 text-center rounded-lg border border-stone-100 shadow-md active:shadow-lg select-none"
   style="z-index: 1"
 >
-  <a href="mailto:{{value.email}}" alt="contact email" class="">
+  <a
+    href="mailto:{{value.email}}"
+    alt="contact email"
+    class="text-gray-900 text-xl"
+  >
     {{value.title}}
   </a>
 </div>

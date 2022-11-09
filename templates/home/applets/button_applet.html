@@ -1,7 +1,13 @@
 <div
   draggable="true"
-  class="applet md:absolute text-gray-900 text-xl bg-white focus:outline-none px-14 py-6 text-center rounded-full border border-gray-200 shadow-md select-none"
+  class="applet md:absolute bg-white focus:outline-none px-12 py-3 text-center rounded-lg border border-stone-100 shadow-md active:shadow-lg select-none"
   style="z-index: 1"
 >
-  <a href="{{value.url}}" alt="{{value.description}}">{{value.title}}</a>
+  <a
+    href="{{value.url}}"
+    alt="{{value.description}}"
+    class="text-gray-900 text-2xl"
+  >
+    {{value.title|title}}
+  </a>
 </div>

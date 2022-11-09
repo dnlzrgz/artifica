@@ -1,14 +1,13 @@
 <article
   draggable="true"
-  class="applet md:absolute max-w-md bg-white rounded-3xl border border-gray-200 shadow-md hover:cursor-grab active:cursor-grabbing select-none overflow-hidden"
+  class="applet md:absolute max-w-md bg-white rounded-lg border border-stone-100 shadow-md hover:cursor-grab active:cursor-grabbing active:shadow-lg select-none"
 >
-  <header class="text-gray-500 bg-gray-50 p-2 text-center">
-    <h1>{{value.title|lower}}</h1>
+  <header class="text-gray-900 bg-gray-100 py-3 px-6 rounded-t-lg">
+    <h1>{{value.title|title}}</h1>
   </header>
-  <main class="applet__body text-lg font-normal px-5 py-7">
+  <main class="applet__body text-lg font-normal py-3 px-6">
     <ul>
-      {% for task in value.tasks %}
-      {% with slugtask=task|slugify %}
+      {% for task in value.tasks %} {% with slugtask=task|slugify %}
       <li class="flex items-center mb-2">
         <input
           type="checkbox"
@@ -20,8 +19,7 @@
           >{{task}}</label
         >
       </li>
-      {% endwith %}
-      {% endfor %}
+      {% endwith %} {% endfor %}
     </ul>
   </main>
 </article>

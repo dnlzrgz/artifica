@@ -3,10 +3,11 @@
   id="dropdown-top-button"
   data-dropdown-toggle="dropdownTop"
   data-dropdown-placement="top"
-  class="applet mr-3 mb-3 md:mb-0 text-gray-900 bg-white font-medium rounded-3xl text-lg p-4 text-center inline-flex items-center"
+  class="applet bg-white rounded-lg px-12 py-3 text-center inline-flex items-center border border-stone-100 shadow-md active:shadow-lg select-none"
   type="button"
+  style="z-index: 1"
 >
-  <span>{{value.title}}</span>
+  <span class="text-gray-900 text-lg">{{value.title|title}}</span>
   <svg
     class="ml-2 w-4 h-4"
     aria-hidden="true"
@@ -25,19 +26,14 @@
 <!-- Dropdown menu -->
 <div
   id="dropdownTop"
-  class="hidden md:absolute w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
+  class="hidden md:absolute bg-white rounded-lg divide-y divide-stone-100 border border-stone-100 shadow-lg"
   style="z-index: 999"
 >
-  <ul
-    class="py-1 text-sm text-gray-700 dark:text-gray-200"
-    aria-labelledby="dropdownTopButton"
-  >
+  <ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownTopButton">
     {% for link in value.links %}
     <li>
-      <a
-        href="{{link.url}}"
-        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-        >{{link.title}}</a
+      <a href="{{link.url}}" class="block py-2 px-4 hover:bg-gray-100"
+        >{{link.title|title}}</a
       >
     </li>
     {% endfor %}

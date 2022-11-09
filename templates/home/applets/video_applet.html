@@ -2,10 +2,10 @@
 
 <article
   draggable="true"
-  class="applet md:absolute max-w-md bg-white rounded-3xl border border-gray-200 shadow-md hover:cursor-grab active:cursor-grabbing"
+  class="applet md:absolute max-w-md bg-white rounded-lg border border-stone-100 shadow-md hover:cursor-grab active:cursor-grabbing active:shadow-lg"
 >
-  <header class="text-gray-500 bg-gray-50 p-2 text-center rounded-t-3xl">
-    <h1>{{value.title|lower}}</h1>
+  <header class="text-gray-900 bg-stone-100 py-3 px-6 rounded-t-lg">
+    <h1>{{value.title|title}}</h1>
   </header>
   <main class="">
     <video src="{% include_block value.media.url %}" loop></video>
