@@ -2,6 +2,8 @@
 
 ### Feat
 
+- **home**: improve todo applet styles
+- **home**: improve pomodoro applet styles
 - **home**: improve notes and textual applets styles
 - **home**: improve button-like applets styles
 - **home**: add basic styles to background

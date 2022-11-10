@@ -1,25 +1,41 @@
 <article
   draggable="true"
-  class="applet md:absolute max-w-md bg-white rounded-lg border border-stone-100 shadow-md hover:cursor-grab active:cursor-grabbing active:shadow-lg select-none"
+  class="applet md:absolute max-w-md bg-blue-500 rounded-lg shadow-md hover:cursor-grab active:cursor-grabbing active:shadow-lg select-none"
 >
-  <header class="text-gray-900 bg-gray-100 py-3 px-6 rounded-t-lg">
-    <h1>{{value.title|title}}</h1>
+  <header class="flex items-center justify-start pt-10 px-6 rounded-t-lg">
+    <span class="text-xl">🍉</span>
+    <h1 class="text-xl text-white font-bold">{{value.title|title}}</h1>
   </header>
-  <main class="applet__body text-lg font-normal py-3 px-6">
-    <ul>
+  <main class="py-6 px-6">
+    <ul class="flex flex-col gap-y-1">
       {% for task in value.tasks %} {% with slugtask=task|slugify %}
-      <li class="flex items-center mb-2">
+      <li class="flex items-center rounded-md bg-white pl-3 pr-12 py-4 shadow-sm">
         <input
           type="checkbox"
           name="todo-{{slugtask}}"
           id="todo-{{slugtask}}"
-          class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2"
+          class="w-5 h-5 text-blue-600 bg-stone-50 rounded-full border-stone-700 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2"
         />
-        <label for="todo-{{slugtask}}" class="ml-2 text-gray-900"
-          >{{task}}</label
+        <label for="todo-{{slugtask}}" class="ml-3 text-gray-900">
+          {{task}}
+        </label
         >
       </li>
       {% endwith %} {% endfor %}
     </ul>
+
+    <div>
+      <button type="submit" class="flex items-center justify-start gap-x-2 px-3 py-3 w-full rounded-md bg-blue-600 mt-24">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 2048 2048"
+          class="w-4 h-4 fill-stone-50"
+          focusable="false">
+          <path d="M2048 960v128h-960v960H960v-960H0V960h960V0h128v960h960z"></path>
+        </svg>
+        <span class="text-stone-50">New task...</span>
+
+      </button>
+    </dv>
   </main>
 </article>
