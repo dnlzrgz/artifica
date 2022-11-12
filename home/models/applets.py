@@ -200,4 +200,4 @@ class AppletsBlock(StreamBlock):
     textual_applet = TextualApplet()
     timeline_applet = TimelineApplet()
     todo_applet = TodoApplet()
-    video_applet = VideoApplet()
+    # video_applet = VideoApplet()

@@ -2,12 +2,17 @@
 
 ### Feat
 
+- **home**: improve timeline applet support
 - **home**: improve todo applet styles
 - **home**: improve pomodoro applet styles
 - **home**: improve notes and textual applets styles
 - **home**: improve button-like applets styles
 - **home**: add basic styles to background
 - **home**: update applet headers style
+
+### Refactor
+
+- **home**: disable video applet
 
 ## v0.2.0 (2022-11-08)
 
