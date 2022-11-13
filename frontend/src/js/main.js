@@ -3,8 +3,10 @@ import "@interactjs/auto-start";
 import "@interactjs/actions/drag";
 import interact from "@interactjs/interact";
 
+// constants
 const applets = document.querySelectorAll(".applet");
 const mdSize = 768;
+const rand = (min, max) => Math.random() * (max - min) + min;
 
 // interact.js
 const dragMoveListener = (event) => {
@@ -59,8 +61,8 @@ window.addEventListener("load", () => {
     const appletWidth = applet.offsetWidth;
     const appletHeight = applet.offsetHeight;
 
-    let x = Math.random() * (windowWidth - appletWidth);
-    let y = Math.random() * (widnowHeight - appletHeight);
+    const x = rand(0 + appletWidth, windowWidth - appletWidth);
+    const y = rand(0 + appletHeight, widnowHeight - appletHeight);
 
     // translate the element
     applet.style.transform = `translate(${x}px, ${y}px)`;
