@@ -1,7 +1,4 @@
-{% extends "base.html" %}
-
-{% block body_class %}template-homepage{% endblock %}
-
+{% extends "base.html" %} {% block body_class %}template-homepage{% endblock %}
 {% block content %}
 <div class="absolute h-full w-full overflow-hidden -z-10">
   <div
@@ -16,7 +13,7 @@
 </div>
 
 <div
-  class="flex flex-col md:flex-none gap-3 md:gap-0 p-3 md:p-0 w-full h-full font-sans"
+  class="absolute w-full h-full md:overflow-hidden flex flex-col md:flex-none gap-3 md:gap-0 p-3 md:p-0 font-sans"
 >
   {{ page.applets }}
 </div>
