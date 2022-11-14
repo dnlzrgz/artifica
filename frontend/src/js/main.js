@@ -72,3 +72,55 @@ window.addEventListener("load", () => {
     applet.setAttribute("data-y", y);
   });
 });
+
+// pomodoro applet
+if (document.body.contains(document.getElementById("pomodoro"))) {
+  const display = document.getElementById("pomodoroDisplay");
+  const startBtn = document.getElementById("pomodoroStart");
+  const stopBtn = document.getElementById("pomodoroStop");
+  const sessionDuration = 25;
+
+  let interval;
+
+  const start = () => {
+    let seconds = 59;
+    let workMinutes = sessionDuration - 1;
+
+    interval = setInterval(() => {
+      startBtn.classList.remove("flex");
+      startBtn.classList.add("hidden");
+      stopBtn.classList.remove("hidden");
+      stopBtn.classList.add("flex");
+
+      const padMins = `${workMinutes}`.padStart(2, "0");
+      const padSecs = `${seconds}`.padStart(2, "0");
+      display.innerText = `${padMins}:${padSecs}`;
+
+      seconds = seconds - 1;
+
+      if (seconds === 0) {
+        workMinutes--;
+
+        if (workMinutes === -1 && seconds === 0) {
+          stop();
+        } else {
+          seconds = 59;
+        }
+      }
+    }, 1000);
+  };
+
+  const stop = () => {
+    clearInterval(interval);
+
+    display.innerText = "25:00";
+
+    stopBtn.classList.remove("flex");
+    stopBtn.classList.add("hidden");
+    startBtn.classList.remove("hidden");
+    startBtn.classList.add("flex");
+  };
+
+  startBtn.addEventListener("click", start);
+  stopBtn.addEventListener("click", stop);
+}

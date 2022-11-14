@@ -1,3 +1,15 @@
+## Unreleased
+
+### Feat
+
+- **home**: make pomodoro applet functional
+- improve static files management with whitenoise
+- **home**: improve background's blob animation
+
+### Fix
+
+- **home**: fix overflow issue
+
 ## v0.3.0 (2022-11-12)
 
 ### Feat
