@@ -2,6 +2,7 @@
 /media/
 /static/
 *.sqlite3
+/frontend/
 
 # Python and others
 __pycache__
