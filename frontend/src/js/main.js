@@ -33,7 +33,7 @@ interact(".applet").draggable({
   },
 });
 
-// z-index.
+// z-index
 let zIndex = 1;
 
 applets.forEach((applet) => {
@@ -48,7 +48,7 @@ applets.forEach((applet) => {
   });
 });
 
-// move applets to random position.
+// Move applets to random position
 window.addEventListener("load", () => {
   if (window.innerWidth < mdSize) {
     return;
@@ -61,8 +61,8 @@ window.addEventListener("load", () => {
     const appletWidth = applet.offsetWidth;
     const appletHeight = applet.offsetHeight;
 
-    const x = rand(0 + appletWidth, windowWidth - appletWidth);
-    const y = rand(0 + appletHeight, widnowHeight - appletHeight);
+    const x = rand(appletWidth, windowWidth - appletWidth);
+    const y = rand(appletHeight, widnowHeight - appletHeight);
 
     // translate the element
     applet.style.transform = `translate(${x}px, ${y}px)`;
@@ -73,7 +73,7 @@ window.addEventListener("load", () => {
   });
 });
 
-// pomodoro applet
+// Pomodoro applet
 if (document.body.contains(document.getElementById("pomodoro"))) {
   const display = document.getElementById("pomodoroDisplay");
   const startBtn = document.getElementById("pomodoroStart");
