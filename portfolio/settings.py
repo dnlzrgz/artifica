@@ -1,9 +1,30 @@
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+import environ
+
+env = environ.Env(
+    DEBUG=(bool, False),
+    SECRET_KEY=(
+        str,
+        "django-insecure-fjwo(3n$w7oo_38y_r_txb3c7&p$9hlq=ra0hp154!j+arkwki",
+    ),
+    ALLOWED_HOSTS=(list, ["*", "localhost"]),
+)
+
+# FIX:
+# Set the project base directory
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, "artifica/.env"))
+
+# False if not in os.environ because of above casting.
+DEBUG = env("DEBUG")
+
+SECRET_KEY = env("SECRET_KEY")
+
+ALLOWED_HOSTS = env("ALLOWED_HOSTS")
 
 # Application definition
 INSTALLED_APPS = [
@@ -72,10 +93,8 @@ WSGI_APPLICATION = "portfolio.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-    }
+    # db() method is an alias for db_url()
+    "default": env.db(),
 }
 
 
@@ -122,7 +141,7 @@ STATICFILES_FINDERS = [
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    os.path.join(BASE_DIR, "frontend/build"),
+    os.path.join(PROJECT_DIR, "frontend/build"),
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

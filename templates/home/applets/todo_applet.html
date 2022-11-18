@@ -1,9 +1,11 @@
 <article
   draggable="true"
   id="todo"
-  class="applet md:absolute max-w-md bg-gradient-to-b from-blue-500 to-blue-400 rounded-lg shadow-md hover:cursor-grab active:cursor-grabbing active:shadow-lg select-none"
+  class="applet md:absolute w-full max-w-sm bg-gradient-to-b from-blue-500 to-blue-400 rounded-lg shadow-md hover:cursor-grab active:cursor-grabbing active:shadow-lg select-none"
 >
-  <header class="flex items-center justify-start pt-10 px-6 rounded-t-lg">
+  <header
+    class="flex items-center justify-start gap-x-1 pt-10 px-6 rounded-t-lg"
+  >
     <span class="text-xl">🍉</span>
     <h1 class="text-xl text-white font-bold">{{value.title|title}}</h1>
   </header>
@@ -27,7 +29,7 @@
       {% endwith %} {% endfor %}
     </ul>
 
-    <div class="relative mt-24">
+    <div class="relative mt-12">
       <span class="absolute inset-y-4 inset-x-4 z-10">
         <svg
           xmlns="http://www.w3.org/2000/svg"

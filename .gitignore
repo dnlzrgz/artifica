@@ -935,4 +935,9 @@ static/js/*.map
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 
+### Docker ###
+
+# Data directory
+data
+
 # End of https://www.toptal.com/developers/gitignore/api/django,git,python,pycharm,visualstudiocode,visualstudio,vim,emacs,linux,macos,windows
