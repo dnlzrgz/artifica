@@ -2,13 +2,23 @@
 
 ### Feat
 
+- improve Dockerfile with setup script
+- add support por memcached
+- manage env variables with django-environ
+- **home**: improve todo applet input styles
+- add favicon
 - **home**: make pomodoro applet functional
 - improve static files management with whitenoise
 - **home**: improve background's blob animation
 
 ### Fix
 
+- fix env variables management
 - **home**: fix overflow issue
+
+### Refactor
+
+- **frontend**: update build path for css and js files
 
 ## v0.3.0 (2022-11-12)
 

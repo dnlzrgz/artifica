@@ -1,30 +1,29 @@
 import os
 
-import environ
+from dotenv import load_dotenv
 
-env = environ.Env(
-    DEBUG=(bool, False),
-    SECRET_KEY=(
-        str,
-        "django-insecure-fjwo(3n$w7oo_38y_r_txb3c7&p$9hlq=ra0hp154!j+arkwki",
-    ),
-    ALLOWED_HOSTS=(list, ["*", "localhost"]),
-)
+# Load .env
 
-# FIX:
+load_dotenv()
+
 # Set the project base directory
+
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
-# Take environment variables from .env file
-environ.Env.read_env(os.path.join(BASE_DIR, "artifica/.env"))
-
 # False if not in os.environ because of above casting.
-DEBUG = env("DEBUG")
 
-SECRET_KEY = env("SECRET_KEY")
+DEBUG = os.environ.get("DEBUG", False)
 
-ALLOWED_HOSTS = env("ALLOWED_HOSTS")
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY",
+    "django-insecure-fjwo(3n$w7oo_38y_r_txb3c7&p$9hlq=ra0hp154!j+arkwki",
+)
+
+ALLOWED_HOSTS = os.environ.get(
+    "ALLOWED_HOSTS",
+    ["*", "localhost"],
+)
 
 # Application definition
 INSTALLED_APPS = [
@@ -93,7 +92,14 @@ WSGI_APPLICATION = "portfolio.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    "default": env.db(),
+    "default": {
+        "ENGINE": os.environ.get("DATABASE_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("DATABASE_NAME", os.path.join(BASE_DIR, "db.sqlite3")),
+        "USER": os.environ.get("DATABASE_USER", "admin"),
+        "PASSWORD": os.environ.get("DATABASE_PASSWORD", "password"),
+        "HOST": os.environ.get("DATABASE_HOST", "localhost"),
+        "PORT": os.environ.get("DATABASE_PORT", "5432"),
+    }
 }
 
 
@@ -102,8 +108,14 @@ DATABASES = {
 
 CACHES = {
     "default": {
-        "BACKEND": "django.core.cache.backends.memcached.PyMemcacheCache",
-        "LOCATION": env.cache(),
+        "BACKEND": os.environ.get(
+            "CACHE_ENGINE",
+            "django.core.cache.backends.dummy.DummyCache",
+        ),
+        "LOCATION": os.environ.get(
+            "CACHE_URL",
+            "cache",
+        ),
     },
 }
 
@@ -160,9 +172,10 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
 # JavaScript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
 # See https://docs.djangoproject.com/en/4.1/ref/contrib/staticfiles/#manifeststaticfilesstorage
+
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
-STATIC_ROOT = os.path.join(PROJECT_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
@@ -175,6 +188,7 @@ WAGTAIL_SITE_NAME = "portfolio"
 
 # Search
 # https://docs.wagtail.org/en/stable/topics/search/backends.html
+
 WAGTAILSEARCH_BACKENDS = {
     "default": {
         "BACKEND": "wagtail.search.backends.database",
@@ -183,4 +197,5 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
+
 WAGTAILADMIN_BASE_URL = "http://example.com"

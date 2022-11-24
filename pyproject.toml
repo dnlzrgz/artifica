@@ -10,17 +10,18 @@ readme = "README.md"
 python = "^3.10"
 django = "^4.1.2"
 wagtail = "^4.0.4"
-pre-commit = "^2.20.0"
 whitenoise = {extras = ["brotli"], version = "^6.2.0"}
-django-environ = "^0.9.0"
 psycopg2-binary = "^2.9.5"
 pymemcache = "^4.0.0"
+gunicorn = "^20.1.0"
+python-dotenv = "^0.21.0"
 
 
 [tool.poetry.group.dev.dependencies]
 django-browser-reload = "^1.6.0"
 black = "^22.10.0"
 commitizen = "^2.37.0"
+pre-commit = "^2.20.0"
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,7 +1,11 @@
 # Django project
+/assets/
 /media/
 /static/
 *.sqlite3
+.env
+.env.prod
+.env.dev
 
 # Python and others
 __pycache__
