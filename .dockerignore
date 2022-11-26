@@ -1,3 +1,8 @@
+# Project metadata
+changelog.md
+README.md
+LICENSE
+
 # Django project
 /assets/
 /media/
@@ -17,6 +22,7 @@ __pycache__
 /.vagrant/
 /Vagrantfile.local
 node_modules/
+frontend/node_modules
 /npm-debug.log
 /.idea/
 .vscode
