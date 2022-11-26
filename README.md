@@ -4,7 +4,7 @@
 
 Artifica is a personal web portfolio designed as a personal OS following the [Fluent Design System](https://www.microsoft.com/design/fluent/) made by Microsoft for the Windows operating system. It was inspired by the awesome [MAD](https://mad.ac/) Studio's page.
 
-![Latest screenshot](./assets/2022-11-10.png)
+![Latest screenshot](./assets/2022-14-10.png)
 
 ## Made with
 
