@@ -9,12 +9,9 @@
     "lint": "prettier --write ."
   },
   "devDependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/typography": "^0.5.7",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
-    "prettier": "2.7.1",
-    "tailwindcss": "^3.2.1"
+    "prettier": "2.7.1"
   },
   "dependencies": {
     "@interactjs/actions": "^1.10.17",
@@ -22,6 +19,9 @@
     "@interactjs/interact": "^1.10.17",
     "concurrently": "^7.5.0",
     "esbuild": "^0.15.12",
-    "flowbite": "^1.5.3"
+    "flowbite": "^1.5.3",
+    "tailwindcss": "^3.2.4",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.7"
   }
 }

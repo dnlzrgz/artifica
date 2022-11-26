@@ -117,6 +117,21 @@ CACHES = {
             "cache",
         ),
     },
+    "renditions": {
+        "BACKEND": os.environ.get(
+            "CACHE_ENGINE",
+            "django.core.cache.backends.dummy.DummyCache",
+        ),
+        "LOCATION": os.environ.get(
+            "CACHE_URL",
+            "cache",
+        ),
+        "TIMEOUT": os.environ.get(
+            "CACHE_TIMEOUT",
+            600,
+        ),
+        "OPTIONS": {"MAX_ENTRIES": 1000},
+    },
 }
 
 
@@ -175,7 +190,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
