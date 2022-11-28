@@ -1,3 +1,9 @@
+## Unreleased
+
+### Fix
+
+- fix issue with staticfiles on production
+
 ## v0.6.0 (2022-11-26)
 
 ### Feat

@@ -3,15 +3,11 @@ import os
 from dotenv import load_dotenv
 
 # Load .env
-
 load_dotenv()
 
 # Set the project base directory
-
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
-
-# False if not in os.environ because of above casting.
 
 DEBUG = os.environ.get("DEBUG", False)
 
@@ -52,14 +48,14 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django_browser_reload.middleware.BrowserReloadMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
@@ -89,12 +85,12 @@ WSGI_APPLICATION = "portfolio.wsgi.application"
 
 
 # Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
 DATABASES = {
     "default": {
         "ENGINE": os.environ.get("DATABASE_ENGINE", "django.db.backends.sqlite3"),
-        "NAME": os.environ.get("DATABASE_NAME", os.path.join(BASE_DIR, "db.sqlite3")),
+        "NAME": os.environ.get(
+            "DATABASE_NAME", os.path.join(PROJECT_DIR, "db.sqlite3")
+        ),
         "USER": os.environ.get("DATABASE_USER", "admin"),
         "PASSWORD": os.environ.get("DATABASE_PASSWORD", "password"),
         "HOST": os.environ.get("DATABASE_HOST", "localhost"),
@@ -104,8 +100,6 @@ DATABASES = {
 
 
 # Cache
-# https://docs.djangoproject.com/en/4.1/ref/settings/#cache
-
 CACHES = {
     "default": {
         "BACKEND": os.environ.get(
@@ -136,8 +130,6 @@ CACHES = {
 
 
 # Password validation
-# https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -155,29 +147,21 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/4.1/topics/i18n/
-
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
-
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(PROJECT_DIR, "static"),
     os.path.join(PROJECT_DIR, "frontend/build"),
 ]
 
@@ -185,12 +169,9 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
-# JavaScript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
-# See https://docs.djangoproject.com/en/4.1/ref/contrib/staticfiles/#manifeststaticfilesstorage
-
+# JavaScript / CSS assets being served from cache.
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
-
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(PROJECT_DIR, "staticfiles")
 STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
@@ -198,12 +179,9 @@ MEDIA_URL = "/media/"
 
 
 # Wagtail settings
-
 WAGTAIL_SITE_NAME = "portfolio"
 
 # Search
-# https://docs.wagtail.org/en/stable/topics/search/backends.html
-
 WAGTAILSEARCH_BACKENDS = {
     "default": {
         "BACKEND": "wagtail.search.backends.database",
@@ -212,5 +190,8 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-
 WAGTAILADMIN_BASE_URL = "http://example.com"
+
+# Security
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
