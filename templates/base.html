@@ -17,7 +17,7 @@
             {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
             {% endblock %}
         </title>
-        <meta name="description" content="" />
+        <meta name="description" content="{% if page.search_description %}{{ page.search_description }}{% endif %}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="shortcut icon" href="{% static 'favicon.svg' %}" type="image/svg">
 
@@ -31,7 +31,7 @@
     </head>
 
     <body class="bg-white">
-        {% wagtailuserbar %}
+        {# wagtailuserbar #}
 
         {% block content %}{% endblock %}
 

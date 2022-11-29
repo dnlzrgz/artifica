@@ -18,8 +18,8 @@ SECRET_KEY = os.environ.get(
 
 ALLOWED_HOSTS = os.environ.get(
     "ALLOWED_HOSTS",
-    ["*", "localhost"],
-)
+    "*",
+).split(", ")
 
 # Application definition
 INSTALLED_APPS = [
@@ -195,3 +195,25 @@ WAGTAILADMIN_BASE_URL = "http://example.com"
 # Security
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+
+CSRF_TRUSTED_ORIGINS = os.environ.get(
+    "CSRF_TRUSTED_ORIGINS",
+    "http://localhost:8000",
+).split(", ")
+
+# Logging
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
+        },
+    },
+}
