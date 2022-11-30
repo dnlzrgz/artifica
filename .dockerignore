@@ -6,6 +6,8 @@ LICENSE
 # Django project
 /assets/
 /media/
+/static/
+/staticfiles/
 *.sqlite3
 .env
 .env.prod

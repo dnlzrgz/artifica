@@ -9,7 +9,7 @@ load_dotenv()
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
-DEBUG = os.environ.get("DEBUG", False)
+DEBUG = os.environ.get("DEBUG", True)
 
 SECRET_KEY = os.environ.get(
     "SECRET_KEY",
@@ -23,6 +23,7 @@ ALLOWED_HOSTS = os.environ.get(
 
 # Application definition
 INSTALLED_APPS = [
+    "artifica.home",
     "django_browser_reload",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -31,7 +32,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
-    "home",
     "modelcluster",
     "taggit",
     "wagtail.admin",
@@ -60,14 +60,13 @@ MIDDLEWARE = [
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
-ROOT_URLCONF = "portfolio.urls"
+ROOT_URLCONF = "artifica.urls"
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            "templates",
-            os.path.join(PROJECT_DIR, "templates"),
+            "artifica/templates",
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -81,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "portfolio.wsgi.application"
+WSGI_APPLICATION = "artifica.wsgi.application"
 
 
 # Database
@@ -161,7 +160,7 @@ STATICFILES_FINDERS = [
 ]
 
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_DIR, "static"),
+    os.path.join(PROJECT_DIR, "artifica/static"),
     os.path.join(PROJECT_DIR, "frontend/build"),
 ]
 
@@ -174,12 +173,12 @@ STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesSto
 STATIC_ROOT = os.path.join(PROJECT_DIR, "staticfiles")
 STATIC_URL = "/static/"
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(PROJECT_DIR, "media")
 MEDIA_URL = "/media/"
 
 
 # Wagtail settings
-WAGTAIL_SITE_NAME = "portfolio"
+WAGTAIL_SITE_NAME = "artifica"
 
 # Search
 WAGTAILSEARCH_BACKENDS = {
@@ -191,15 +190,6 @@ WAGTAILSEARCH_BACKENDS = {
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 WAGTAILADMIN_BASE_URL = "http://example.com"
-
-# Security
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-
-CSRF_TRUSTED_ORIGINS = os.environ.get(
-    "CSRF_TRUSTED_ORIGINS",
-    "http://localhost:8000",
-).split(", ")
 
 # Logging
 LOGGING = {
