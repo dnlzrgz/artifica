@@ -30,6 +30,9 @@ module.exports = {
           },
         },
       },
+      zIndex: {
+        1: "1",
+      },
     },
   },
   plugins: [require("flowbite/plugin")],

@@ -4,7 +4,15 @@
 
 @layer base {
   .applet {
-    @apply touch-none;
+    @apply bg-white border border-stone-100 rounded-lg md:absolute touch-none select-none shadow-md active:shadow-lg hover:cursor-grab active:cursor-grabbing;
+  }
+
+  .applet--button {
+    @apply text-center hover:bg-stone-100 px-12 py-3 focus:outline-none rounded-md;
+  }
+
+  .applet__header {
+    @apply text-base bg-gray-100 text-gray-900 py-3 px-6 rounded-t-lg;
   }
 
   .applet__body > h2 {

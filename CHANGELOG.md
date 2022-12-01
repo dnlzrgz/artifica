@@ -12,6 +12,7 @@
 
 ### Refactor
 
+- **home**: refactor applet classes
 - refactor project structure
 
 ## v0.6.0 (2022-11-26)
