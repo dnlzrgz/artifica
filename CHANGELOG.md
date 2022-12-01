@@ -1,8 +1,18 @@
 ## Unreleased
 
+### Feat
+
+- add robots.txt view
+- add sitemap
+
 ### Fix
 
-- fix issue with staticfiles on production
+- **home**: fix meta tag description
+- fix issue with static files on production
+
+### Refactor
+
+- refactor project structure
 
 ## v0.6.0 (2022-11-26)
 
