@@ -6,11 +6,13 @@
   class="applet applet--button w-full md:w-auto flex items-center justify-center gap-x-4"
   type="button"
 >
-  <span class="text-gray-900 text-xl md:text-lg">{{value.title|title}}</span>
+  <span class="text-gray-900 dark:text-slate-50 text-xl md:text-lg"
+    >{{value.title|title}}</span
+  >
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 2048 2048"
-    class="w-3 h-3 fill-gray-900"
+    class="w-3 h-3 fill-gray-900 dark:fill-slate-50"
     focusable="false"
   >
     <path
@@ -22,24 +24,24 @@
 <!-- Dropdown menu -->
 <div
   id="dropdownTop"
-  class="hidden md:absolute bg-white rounded-lg divide-y divide-stone-100 border border-stone-100 shadow-lg"
+  class="hidden md:absolute bg-white dark:bg-slate-900 rounded-lg divide-y divide-stone-100 dark:divide-slate-700 border border-stone-100 dark:border-slate-900 shadow-lg"
   style="z-index: 999"
 >
   <ul
-    class="text-md py-3 px-2 max-w-lg text-gray-900"
+    class="text-md py-3 px-2 max-w-lg text-gray-900 dark:text-slate-50"
     aria-labelledby="dropdownTopButton"
   >
     {% for link in value.links %}
     <li>
       <a
         href="{{link.url}}"
-        class="flex items-center justify-center gap-x-3 rounded-md py-3 px-6 hover:bg-gray-100"
+        class="flex items-center justify-center gap-x-3 rounded-md py-3 px-6 hover:bg-gray-100 dark:hover:bg-slate-800"
       >
         <span>{{link.title|title}}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 2048 2048"
-          class="w-2 h-2 fill-gray-900"
+          class="w-2 h-2 fill-gray-900 dark:fill-slate-50"
           focusable="false"
         >
           <path

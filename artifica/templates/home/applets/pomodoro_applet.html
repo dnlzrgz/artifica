@@ -7,21 +7,17 @@
     <div class="text-center mb-12">
       <p
         id="pomodoroDisplay"
-        class="flex tabular-nums text-7xl font-normal text-gray-900"
+        class="flex tabular-nums text-7xl font-normal text-gray-900 dark:text-slate-50"
       >
         25:00
       </p>
     </div>
 
-    <button
-      type="button"
-      id="pomodoroStart"
-      class="flex items-center justify-center gap-x-3 py-2 px-6 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
-    >
+    <button type="button" id="pomodoroStart" class="pomodoro__button">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 2048 2048"
-        class="w-4 h-4 fill-white"
+        class="w-4 h-4 fill-white dark:fill-slate-900"
         focusable="false"
       >
         <path d="M1792 1024L512 1920V128l1280 896z"></path>
@@ -29,15 +25,11 @@
       <span>Start session</span>
     </button>
 
-    <button
-      type="button"
-      id="pomodoroStop"
-      class="hidden items-center justify-center gap-x-3 py-2 px-6 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
-    >
+    <button type="button" id="pomodoroStop" class="pomodoro__button hidden">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 2048 2048"
-        class="w-4 h-4 fill-white"
+        class="w-4 h-4 fill-white dark:fill-slate-900"
         focusable="false"
       >
         <path d="M128 128h1792v1792H128V128z"></path>

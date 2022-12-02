@@ -1,28 +1,33 @@
 <article
   draggable="true"
   id="todo"
-  class="applet border-none w-full max-w-sm bg-gradient-to-b from-blue-500 to-blue-400"
+  class="applet border-none w-full md:max-w-sm bg-blue-400 bg-gradient-to-b from-blue-500 to-blue-400 dark:bg-slate-900 dark:from-slate-900 dark:to-slate-900"
 >
   <header
     class="flex items-center justify-start gap-x-1 pt-10 px-6 rounded-t-lg"
   >
     <span class="text-xl">🍉</span>
-    <h1 class="text-xl text-white font-bold">{{value.title|title}}</h1>
+    <h1 class="text-xl text-white dark:text-teal-400 font-bold">
+      {{value.title|title}}
+    </h1>
   </header>
 
   <main class="py-6 px-6">
     <ul class="flex flex-col gap-y-1">
       {% for task in value.tasks %} {% with slugtask=task|slugify %}
       <li
-        class="flex items-center rounded-md bg-white pl-3 pr-12 py-4 shadow-sm"
+        class="flex items-center rounded-md bg-white dark:bg-slate-800 pl-3 pr-12 py-4 shadow-sm"
       >
         <input
           type="checkbox"
           name="todo-{{slugtask}}"
           id="todo-{{slugtask}}"
-          class="w-5 h-5 text-blue-600 bg-stone-50 rounded-full border-stone-700"
+          class="w-5 h-5 text-blue-600 dark:text-teal-400 bg-stone-50 dark:bg-slate-900 rounded-full border-stone-700 dark:border-slate-800 focus:ring-blue-400 dark:focus:ring-teal-400 dark:ring-offset-gray-800 focus:ring-0"
         />
-        <label for="todo-{{slugtask}}" class="ml-3 text-gray-900">
+        <label
+          for="todo-{{slugtask}}"
+          class="ml-3 text-gray-900 dark:text-slate-50"
+        >
           {{task}}
         </label>
       </li>
@@ -34,7 +39,7 @@
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 2048 2048"
-          class="w-4 h-4 fill-stone-900"
+          class="w-4 h-4 fill-stone-900 dark:fill-slate-50"
           focusable="false"
         >
           <path
@@ -44,7 +49,7 @@
       </span>
       <input
         type="text"
-        class="px-3 pl-12 py-3 w-full rounded-md border-none bg-stone-50 text-stone-900 placeholder-stone-900"
+        class="px-3 pl-12 py-3 w-full rounded-md border-none bg-stone-50 dark:bg-slate-800 text-stone-900 dark:text-slate-50 placeholder-stone-900 dark:placeholder-slate-50"
         placeholder="Add a new task"
         autocomplete="off"
         autocapitalize="on"

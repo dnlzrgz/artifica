@@ -8,6 +8,43 @@ const applets = document.querySelectorAll(".applet");
 const mdSize = 768;
 const rand = (min, max) => Math.random() * (max - min) + min;
 
+// On load event
+window.addEventListener("load", () => {
+  // Set dark mode if active
+  if (
+    localStorage.getItem("color-theme") === "dark" ||
+    (!("color-theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+
+  // Move applets to random position
+  if (window.innerWidth < mdSize) {
+    return;
+  }
+
+  const windowWidth = window.innerWidth;
+  const widnowHeight = window.innerHeight;
+
+  applets.forEach((applet) => {
+    const appletWidth = applet.offsetWidth;
+    const appletHeight = applet.offsetHeight;
+
+    const x = rand(appletWidth, windowWidth - appletWidth);
+    const y = rand(appletHeight, widnowHeight - appletHeight);
+
+    // translate the element
+    applet.style.transform = `translate(${x}px, ${y}px)`;
+
+    // update the posiion attributes
+    applet.setAttribute("data-x", x);
+    applet.setAttribute("data-y", y);
+  });
+});
+
 // interact.js
 const dragMoveListener = (event) => {
   let target = event.target;
@@ -45,31 +82,6 @@ applets.forEach((applet) => {
   applet.addEventListener("touchstart", () => {
     zIndex++;
     applet.style.zIndex = zIndex;
-  });
-});
-
-// Move applets to random position
-window.addEventListener("load", () => {
-  if (window.innerWidth < mdSize) {
-    return;
-  }
-
-  const windowWidth = window.innerWidth;
-  const widnowHeight = window.innerHeight;
-
-  applets.forEach((applet) => {
-    const appletWidth = applet.offsetWidth;
-    const appletHeight = applet.offsetHeight;
-
-    const x = rand(appletWidth, windowWidth - appletWidth);
-    const y = rand(appletHeight, widnowHeight - appletHeight);
-
-    // translate the element
-    applet.style.transform = `translate(${x}px, ${y}px)`;
-
-    // update the posiion attributes
-    applet.setAttribute("data-x", x);
-    applet.setAttribute("data-y", y);
   });
 });
 
