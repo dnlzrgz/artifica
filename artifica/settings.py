@@ -162,7 +162,7 @@ STATICFILES_FINDERS = [
 
 STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, "artifica/static"),
-    os.path.join(PROJECT_DIR, "frontend/build"),
+    os.path.join(PROJECT_DIR, "artifica/frontend/build"),
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

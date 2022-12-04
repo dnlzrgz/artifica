@@ -5,10 +5,10 @@ ENV NODE_ENV="production"
 WORKDIR /app
 
 COPY artifica/templates artifica/templates
-COPY frontend frontend
+COPY artifica/frontend artifica/frontend
 
 RUN npm i -g npm@latest
-RUN cd frontend && npm install --omit=dev && npm run build
+RUN cd artifica/frontend && npm install --omit=dev && npm run build
 
 FROM python:3.11.0-slim
 
@@ -40,7 +40,7 @@ RUN chown wagtail:wagtail /app
 COPY --chown=wagtail:wagtail artifica/ artifica/
 COPY --chown=wagtail:wagtail manage.py .
 COPY --chown=wagtail:wagtail entrypoint.sh .
-COPY --from=frontend app/frontend/build frontend/build
+COPY --from=frontend app/artifica/frontend/build artifica/frontend/build
 
 RUN mkdir -p /app/staticfiles && chown -R 1000:2000 /app/staticfiles
 RUN mkdir -p /app/media && chown -R 1000:2000 /app/media

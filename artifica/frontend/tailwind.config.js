@@ -2,8 +2,8 @@
 
 module.exports = {
   content: [
-    "../artifica/templates/*.html",
-    "../artifica/templates/**/*.html",
+    "../templates/*.html",
+    "../templates/**/*.html",
     "./node_modules/flowbite/**/*.js",
   ],
   corePlugins: {
