@@ -1,7 +1,8 @@
-## Unreleased
+## v0.7.0 (2022-12-04)
 
 ### Feat
 
+- **home**: add dark theme support
 - add robots.txt view
 - add sitemap
 
