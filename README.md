@@ -48,7 +48,7 @@ The list of applets and their functionality is a work in progress but the list o
 - Textual applet.
 - Todo.
 
-" You can create and update these applets using the Wagtail admin page.
+> You can create and update these applets using the Wagtail admin page.
 
 ## Installation
 
@@ -70,31 +70,31 @@ pre-commit install
 
 ## Development setup
 
-" TODO:
+> TODO:
 
 ### Front-End
 
-" TODO:
+> TODO:
 
 ### `ENV` variables
 
-" TODO:
+> TODO:
 
 ## Deploy
 
-" TODO:
+> TODO:
 
 ### Docker image
 
-" TODO:
+> TODO:
 
 ### Docker compose
 
-" TODO:
+> TODO:
 
 ### Platforms
 
-" TODO:
+> TODO:
 
 ## Development in progress
 

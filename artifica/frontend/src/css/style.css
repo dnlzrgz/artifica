@@ -4,7 +4,7 @@
 
 @layer base {
   .applet {
-    @apply bg-white dark:bg-slate-900 border border-stone-100 dark:border-slate-900 rounded-lg md:absolute touch-none select-none shadow-md active:shadow-lg hover:cursor-grab active:cursor-grabbing;
+    @apply bg-stone-50 dark:bg-slate-900 border border-stone-100 dark:border-slate-900 rounded-lg md:absolute touch-none select-none shadow-md active:shadow-lg hover:cursor-grab active:cursor-grabbing;
   }
 
   .applet--button {
@@ -12,19 +12,19 @@
   }
 
   .applet__header {
-    @apply text-base bg-gray-100 dark:bg-slate-900 text-gray-900 dark:text-slate-50 py-3 px-6 rounded-t-lg;
+    @apply text-base bg-stone-100 dark:bg-slate-900 text-stone-900 dark:text-slate-50 py-3 px-6 rounded-t-lg;
   }
 
   .applet__body > h2 {
-    @apply mb-5 text-2xl font-medium tracking-tight text-gray-900 dark:text-slate-50;
+    @apply mb-5 text-2xl font-medium tracking-tight text-stone-900 dark:text-slate-50;
   }
 
   .applet__body > p {
-    @apply text-gray-900 dark:text-slate-100;
+    @apply text-stone-700 dark:text-slate-100;
   }
 
   .pomodoro__button {
-    @apply flex items-center justify-center gap-x-3 py-2 px-6 bg-blue-500 dark:bg-teal-400 hover:bg-blue-600 dark:hover:bg-teal-500 text-white dark:text-slate-900 rounded-md;
+    @apply flex items-center justify-center gap-x-3 py-2 px-6 bg-blue-500 dark:bg-teal-400 hover:bg-blue-600 dark:hover:bg-teal-500 text-stone-50 dark:text-slate-900 rounded-md;
   }
 
   .blob {

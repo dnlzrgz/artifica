@@ -5,15 +5,15 @@
   <main
     id="accordion-flush"
     data-accordion="collapse"
-    data-active-classes="bg-white dark:bg-slate-900 text-gray-900 dark:text-slate-50"
-    data-inactive-classes="text-gray-700 dark:text-slate-500"
+    data-active-classes="bg-stone-50 dark:bg-slate-900 text-stone-900 dark:text-slate-50"
+    data-inactive-classes="text-stone-500 dark:text-slate-500"
     class="py-3 px-6"
   >
     {% for note in value.notes %}
     <h2 id="accordion-flush-heading-{{note.title|slugify}}">
       <button
         type="button"
-        class="flex items-center justify-start gap-x-4 w-full py-3 text-gray-900 dark:text-slate-50"
+        class="flex items-center justify-start gap-x-4 w-full py-3 text-stone-900 dark:text-slate-50"
         data-accordion-target="#accordion-flush-body-{{note.title|slugify}}"
         aria-expanded="true"
         aria-controls="accordion-flush-body-{{note.title|slugify}}"
@@ -22,7 +22,7 @@
           data-accordion-icon
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 2048 2048"
-          class="w-4 h-4 rotate-180 shrink-0 dark:fill-slate-50"
+          class="w-4 h-4 rotate-180 shrink-0 fill-stone-900 dark:fill-slate-50"
           focusable="false"
         >
           <path
@@ -39,7 +39,7 @@
       class="hidden"
       aria-labelledby="accordion-flush-heading-{{note.title|slugify}}"
     >
-      <div class="text-gray-700 dark:text-slate-100">{{note.content}}</div>
+      <div class="text-stone-700 dark:text-slate-100">{{note.content}}</div>
     </div>
     {% endfor %}
   </main>
