@@ -1,7 +1,9 @@
-## v0.7.0 (2022-12-04)
+## Unreleased
 
 ### Feat
 
+- **home**: improve 404 and 500 error pages
+- **home**: improve light color palette
 - **home**: add dark theme support
 - add robots.txt view
 - add sitemap
@@ -13,6 +15,7 @@
 
 ### Refactor
 
+- refactor project structure
 - **home**: refactor applet classes
 - refactor project structure
 

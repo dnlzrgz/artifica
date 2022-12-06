@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
@@ -10,5 +12,8 @@
   class="absolute w-full h-full md:overflow-hidden flex flex-col md:flex-none gap-3 md:gap-0 p-3 md:p-0 font-sans"
 >
   {{ page.applets }}
+
+  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </div>
+
 {% endblock content %}
