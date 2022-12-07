@@ -193,35 +193,64 @@ WAGTAILSEARCH_BACKENDS = {
 WAGTAILADMIN_BASE_URL = "http://example.com"
 
 # Logging
+LOGGING_FORMATTERS = {
+    "simple": {
+        "format": "{levelname} {message}",
+        "style": "{",
+    },
+    "verbose": {
+        "format": "{name} {levelname} {asctime} {module} {process:d} {thread:d} {message}",
+        "style": "{",
+    },
+}
+
+LOGGING_HANDLERS = {
+    "console": {
+        "class": "logging.StreamHandler",
+        "formatter": "simple",
+    },
+    "basic_file": {
+        "class": "logging.FileHandler",
+        "filename": os.getenv("DJANGO_LOG_BASIC_FILE", f"{PROJECT_DIR}/logs/basic.log"),
+        "mode": "a",
+        "encoding": "utf-8",
+        "formatter": "simple",
+    },
+    "detailed_file": {
+        "class": "logging.FileHandler",
+        "filename": os.getenv(
+            "DJANGO_LOG_DETAILED_FILE", f"{PROJECT_DIR}/logs/detailed.log"
+        ),
+        "mode": "a",
+        "encoding": "utf-8",
+        "formatter": "verbose",
+    },
+}
+
+LOGGING_LOGGERS = {
+    "django": {
+        "handlers": ["console", "basic_file"],
+        "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
+        "propagate": False,
+    },
+    "django-request": {
+        "django-request": {
+            "handlers": ["detailed_file"],
+            "level": "WARNING",
+            "propagate": False,
+        }
+    },
+    "django.db.backends": {
+        "handlers": ["console", "detailed_file"],
+        "level": "ERROR",
+        "propagate": False,
+    },
+}
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
-    "formatters": {
-        "verbose": {
-            "format": "{name} {levelname} {asctime} {module} {process:d} {thread:d} {message}",
-            "style": "{",
-        },
-        "simple": {
-            "format": "{levelname} {message}",
-            "style": "{",
-        },
-    },
-    "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-            "formatter": "simple",
-        },
-        "file": {
-            "class": "logging.FileHandler",
-            "filename": "general.log",
-            "level": "WARNING",
-            "formatter": "verbose",
-        },
-    },
-    "loggers": {
-        "": {
-            "handlers": ["console", "file"],
-            "level": os.getenv("DJANGO_LOG_LEVEL", "WARNING"),
-        },
-    },
+    "formatters": LOGGING_FORMATTERS,
+    "handlers": LOGGING_HANDLERS,
+    "loggers": LOGGING_LOGGERS,
 }

@@ -78,6 +78,37 @@ pre-commit install
 
 ### `ENV` variables
 
+For development:
+
+```plain
+DEBUG=on
+```
+
+For production:
+
+```plain
+ALLOWED_HOSTS=
+
+DATABASE_ENGINE=
+DATABASE_HOST=
+DATABASE_PORT=
+DATABASE_NAME=
+DATABASE_USER=
+DATABASE_PASSWORD=
+DATABASE_URL=
+
+CACHE_ENGINE=
+CACHE_URL=
+
+SECRET_KEY=
+
+DJANGO_LOG_LEVEL=
+```
+
+If you are using the `docker-compose.yaml` file, it in fact, expects an `.env.prod` file with most of the above `env` variables.
+
+## Logging
+
 > TODO:
 
 ## Deploy
