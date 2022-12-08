@@ -4,7 +4,7 @@
 
 @layer base {
   .applet {
-    @apply bg-stone-50 dark:bg-slate-900 border border-stone-100 dark:border-slate-900 rounded-lg md:absolute touch-none select-none shadow-md active:shadow-lg hover:cursor-grab active:cursor-grabbing;
+    @apply bg-stone-50 dark:bg-slate-900 border border-stone-100 dark:border-slate-900 rounded-lg md:absolute touch-none select-none shadow-md active:shadow-lg hover:cursor-grab active:cursor-grabbing md:opacity-0 md:transition-opacity;
   }
 
   .applet--button {

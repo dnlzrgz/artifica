@@ -2,6 +2,8 @@
 
 ### Feat
 
+- **home**: add fade in transition to applets
+- **home**: improve initial position of applets
 - improve logging setup
 - **home**: improve 404 and 500 error pages
 - **home**: improve light color palette

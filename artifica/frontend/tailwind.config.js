@@ -11,6 +11,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      zIndex: {
+        1: 1,
+      },
       animation: {
         blob: "blob 9s infinite",
       },
@@ -29,9 +32,6 @@ module.exports = {
             transform: "translate(0, 0) scale(1)",
           },
         },
-      },
-      zIndex: {
-        1: "1",
       },
     },
   },

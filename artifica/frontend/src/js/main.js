@@ -43,6 +43,8 @@ window.addEventListener("load", () => {
       }
     });
   }
+
+  applets.forEach((applet) => (applet.style.opacity = 1));
 });
 
 // interact.js
