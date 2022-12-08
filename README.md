@@ -103,6 +103,8 @@ CACHE_URL=
 SECRET_KEY=
 
 DJANGO_LOG_LEVEL=
+DJANGO_LOG_BASIC_FILE=
+DJANGO_LOG_DETAILED_FILE=
 ```
 
 If you are using the `docker-compose.yaml` file, it in fact, expects an `.env.prod` file with most of the above `env` variables.

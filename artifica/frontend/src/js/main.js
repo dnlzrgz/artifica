@@ -3,14 +3,16 @@ import "@interactjs/auto-start";
 import "@interactjs/actions/drag";
 import interact from "@interactjs/interact";
 
-// constants
-const applets = document.querySelectorAll(".applet");
-const mdSize = 768;
-const rand = (min, max) => Math.random() * (max - min) + min;
+import { isOverlapping, randomPosition } from "./position";
 
-// On load event
+// constants
+const applets = [...document.querySelectorAll(".applet")];
+const mdSize = 768;
+const appletsMinOverlap = 0.5;
+
+let zIndex = 1;
+
 window.addEventListener("load", () => {
-  // Set dark mode if active
   if (
     localStorage.getItem("color-theme") === "dark" ||
     (!("color-theme" in localStorage) &&
@@ -21,28 +23,26 @@ window.addEventListener("load", () => {
     document.documentElement.classList.remove("dark");
   }
 
-  // Move applets to random position
-  if (window.innerWidth < mdSize) {
-    return;
+  if (window.innerWidth > mdSize) {
+    applets.forEach((applet) => {
+      let overlapping = true;
+
+      while (overlapping) {
+        randomPosition(applet);
+        overlapping = false;
+
+        for (const otherApplet of applets) {
+          if (
+            otherApplet !== applet &&
+            isOverlapping(appletsMinOverlap, applet, otherApplet)
+          ) {
+            overlapping = true;
+            break;
+          }
+        }
+      }
+    });
   }
-
-  const windowWidth = window.innerWidth;
-  const widnowHeight = window.innerHeight;
-
-  applets.forEach((applet) => {
-    const appletWidth = applet.offsetWidth;
-    const appletHeight = applet.offsetHeight;
-
-    const x = rand(appletWidth, windowWidth - appletWidth);
-    const y = rand(appletHeight, widnowHeight - appletHeight);
-
-    // translate the element
-    applet.style.transform = `translate(${x}px, ${y}px)`;
-
-    // update the posiion attributes
-    applet.setAttribute("data-x", x);
-    applet.setAttribute("data-y", y);
-  });
 });
 
 // interact.js
@@ -71,8 +71,6 @@ interact(".applet").draggable({
 });
 
 // z-index
-let zIndex = 1;
-
 applets.forEach((applet) => {
   applet.addEventListener("mousedown", () => {
     zIndex++;

@@ -2,6 +2,7 @@
 
 ### Feat
 
+- improve logging setup
 - **home**: improve 404 and 500 error pages
 - **home**: improve light color palette
 - **home**: add dark theme support

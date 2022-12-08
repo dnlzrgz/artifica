@@ -9,11 +9,9 @@
 {% include "home/animated_background.html"  %}
 
 <div
-  class="absolute w-full h-full md:overflow-hidden flex flex-col md:flex-none gap-3 md:gap-0 p-3 md:p-0 font-sans"
+  class="absolute w-full h-full md:overflow-hidden flex md:flex-none flex-col gap-3 md:gap-0 p-3 md:p-0"
 >
   {{ page.applets }}
-
-  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </div>
 
 {% endblock content %}
