@@ -184,7 +184,7 @@ bcrypt = ["bcrypt"]
 name = "django-browser-reload"
 version = "1.6.0"
 description = "Automatically reload your browser in development."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -799,7 +799,7 @@ testing = ["Pillow (>=6.0.0,<10.0.0)", "Wand (>=0.6,<1.0)", "mock (>=3.0,<4.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "e855a24014e8bad01562426e2956c0ce926276f445bfdefff2456e7824f5d319"
+content-hash = "8b5ac5eb36c978f46bf5186c29cc8104e012ccb85f3862b8c56628709c4429de"
 
 [metadata.files]
 anyascii = [

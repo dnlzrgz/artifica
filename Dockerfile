@@ -30,8 +30,8 @@ RUN set -ex && apt-get update --yes --quiet && apt-get install --yes --quiet --n
 
 RUN pip install --upgrade pip
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir --upgrade -r requirements.txt
+COPY requirements.prod.txt .
+RUN pip install --no-cache-dir --upgrade -r requirements.prod.txt
 
 WORKDIR /app
 
@@ -44,6 +44,7 @@ COPY --from=frontend app/artifica/frontend/build artifica/frontend/build
 
 RUN mkdir -p /app/staticfiles && chown -R 1000:2000 /app/staticfiles
 RUN mkdir -p /app/media && chown -R 1000:2000 /app/media
+RUN mkdir -p /app/logs && chown -R 1000:2000 /app/logs
 
 USER wagtail
 
