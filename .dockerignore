@@ -12,8 +12,7 @@ LICENSE
 /staticfiles/
 *.sqlite3
 .env
-.env.prod
-.env.dev
+.env.*
 
 # Python and others
 __pycache__
