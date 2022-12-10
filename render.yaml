@@ -1,5 +1,5 @@
 services:
 - type: web
-  name: portfolio-django
+  name: artifica-django
   env: docker
   healthCheckPath: /

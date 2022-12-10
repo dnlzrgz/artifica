@@ -17,6 +17,7 @@ Artifica is an OS-like Personal Web Portfolio designed following the [Fluent Des
 - Developed following the [the 12-factor methodoly](https://www.12factor.net/).
 - Support for light/dark mode.
 - _Almost_ functional "applets".
+- Ready to deploy on [render](https://render.com/).
 
 ## Stack
 
@@ -26,7 +27,7 @@ Artifica is an OS-like Personal Web Portfolio designed following the [Fluent Des
 - Tailwind CSS & Flowbite
 - ESbuild
 - SQLite/PostgreSQL
-- Memcached
+- Memcached/Redis.
 
 ## Why?
 
@@ -46,9 +47,9 @@ The list of applets and their functionality is a work in progress but the list o
 - Notes.
 - Pomodoro.
 - Textual applet.
-- Todo.
+- To Do.
 
-> You can create and update these applets using the Wagtail admin page.
+> You can create and manage these applets using the Wagtail admin page.
 
 ## Installation
 
@@ -76,15 +77,17 @@ pre-commit install
 
 > TODO:
 
-### `ENV` variables
+## `ENV` variables
 
-For development:
+For development, the only `env` variable that you'll need is `DEBUG` whose value does not really matter as long as it has one:
 
 ```plain
 DEBUG=on
 ```
 
-For production:
+You can also set `env` variables related to logging, the database and the cache to be used:
+
+For production is recommended to set the below `env` variables.
 
 ```plain
 ALLOWED_HOSTS=
@@ -95,7 +98,6 @@ DATABASE_PORT=
 DATABASE_NAME=
 DATABASE_USER=
 DATABASE_PASSWORD=
-DATABASE_URL=
 
 CACHE_ENGINE=
 CACHE_URL=
@@ -107,15 +109,49 @@ DJANGO_LOG_BASIC_FILE=
 DJANGO_LOG_DETAILED_FILE=
 ```
 
-If you are using the `docker-compose.yaml` file, it in fact, expects an `.env.prod` file with most of the above `env` variables.
+Other `env` variables may be needed depending on your deployment pipeline. For example, for render you will need to add the `RENDER_EXTERNAL_HOSTNAME` variable.
+
+> Note that if you are using the `docker-compose.yaml` file it expects an `.env.prod` file.
 
 ## Logging
 
 > TODO:
 
-## Deploy
+## Cache
+
+Artifica is ready to be used with both Memcached and Redis. If the `CACHE_ENGINE` and `CACHE_URL` `env` variables are not setup. It will use [dummy caching](https://docs.djangoproject.com/en/4.1/topics/cache/#dummy-caching-for-development).
+
+### Memcached
+
+For Memcached, Artifica uses [pymemcache](https://pypi.org/project/pymemcache/). So the only thing you need to do is to setup the following `env` variables as follows:
+
+```env
+CACHE_ENGINE=django.core.cache.backends.memcached.PyMemcacheCache
+CACHE_URL=memcache://127.0.0.1:11211
+```
+
+### Redis
+
+For Redis, Artifica comes with [redis-py](https://pypi.org/project/redis/) and [hiredis](https://pypi.org/project/hiredis/). To start using Redis add the following `env` variables to your `.env` file:
+
+```env
+CACHE_ENGINE=django.core.cache.backends.redis.RedisCache
+CACHE_URL=redis://127.0.0.1:6379
+```
+
+## Database
 
 > TODO:
+
+## Deploy
+
+### render
+
+If you're going to deploy this project to [render](render.com) It's recommended to check first their [quickstart guide](https://render.com/docs/deploy-django).
+
+Although this project contains a `render.yaml` file, unless you modify it, the deployment will need to be manual as specified in the guide mentioned above.
+
+## Docker
 
 ### Docker image
 
@@ -125,11 +161,7 @@ If you are using the `docker-compose.yaml` file, it in fact, expects an `.env.pr
 
 > TODO:
 
-### Platforms
-
-> TODO:
-
-## Development in progress
+## Work in progress
 
 Artifica is a work in progress and a personal project. By this I mean that there will be certain features that I will not implement and others that I will work on at my own discretion.
 
