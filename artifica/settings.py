@@ -259,3 +259,9 @@ LOGGING = {
     "handlers": LOGGING_HANDLERS,
     "loggers": LOGGING_LOGGERS,
 }
+
+# CSRF tokens
+CSRF_TRUSTED_ORIGINS = os.environ.get(
+    "CSRF_TRUSTED_ORIGINS",
+    "http://localhost",
+).split(", ")
