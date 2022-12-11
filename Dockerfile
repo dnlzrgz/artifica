@@ -14,10 +14,9 @@ FROM python:3.11.0-slim
 
 RUN useradd wagtail
 
-EXPOSE 8000
+ENV PYTHONUNBUFFERED=1
 
-ENV PYTHONUNBUFFERED=1 \
-    PORT=8000
+EXPOSE $PORT
 
 RUN set -ex && apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-recommends \
     build-essential \
