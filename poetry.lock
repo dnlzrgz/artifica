@@ -65,6 +65,7 @@ mypy-extensions = ">=0.4.3"
 pathspec = ">=0.9.0"
 platformdirs = ">=2"
 tomli = {version = ">=1.1.0", markers = "python_full_version < \"3.11.0a7\""}
+typing-extensions = {version = ">=3.10.0.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
 colorama = ["colorama (>=0.4.3)"]
@@ -796,8 +797,8 @@ testing = ["Pillow (>=6.0.0,<10.0.0)", "Wand (>=0.6,<1.0)", "mock (>=3.0,<4.0)"]
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.10"
-content-hash = "e4b6eb6fe29eec5a820fd551dac85d4db60e0e27988428b1b40b0707515003cc"
+python-versions = "^3.9"
+content-hash = "2904ce4c7a7e65496f624972b565597fe1cef12303c5ba6d399b08b9bfe66113"
 
 [metadata.files]
 anyascii = [
