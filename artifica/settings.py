@@ -21,6 +21,11 @@ ALLOWED_HOSTS = os.environ.get(
     "*",
 ).split(", ")
 
+INTERNAL_IPS = os.environ.get(
+    "INTERNAL_IPS",
+    "127.0.0.1",
+)
+
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 
 if RENDER_EXTERNAL_HOSTNAME:
@@ -29,7 +34,6 @@ if RENDER_EXTERNAL_HOSTNAME:
 # Application definition
 INSTALLED_APPS = [
     "artifica.home",
-    "django_browser_reload",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -53,6 +57,7 @@ INSTALLED_APPS = [
     "wagtail",
 ]
 
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
@@ -62,9 +67,23 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django_browser_reload.middleware.BrowserReloadMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
+
+if DEBUG:
+    INSTALLED_APPS.extend(
+        [
+            "django_browser_reload",
+            "debug_toolbar",
+        ]
+    )
+    MIDDLEWARE.extend(
+        [
+            "django_browser_reload.middleware.BrowserReloadMiddleware",
+            "debug_toolbar.middleware.DebugToolbarMiddleware",
+        ]
+    )
+
 
 ROOT_URLCONF = "artifica.urls"
 
