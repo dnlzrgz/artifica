@@ -12,17 +12,17 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 DEBUG = os.environ.get("DEBUG", False)
 
 SECRET_KEY = os.environ.get(
-    "SECRET_KEY",
+    "DJANGO_SECRET_KEY",
     "django-insecure-fjwo(3n$w7oo_38y_r_txb3c7&p$9hlq=ra0hp154!j+arkwki",
 )
 
 ALLOWED_HOSTS = os.environ.get(
-    "ALLOWED_HOSTS",
+    "DJANGO_ALLOWED_HOSTS",
     "*",
 ).split(", ")
 
 INTERNAL_IPS = os.environ.get(
-    "INTERNAL_IPS",
+    "DJANGO_INTERNAL_IPS",
     "127.0.0.1",
 )
 
@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.sessions",
     "django.contrib.sitemaps",
+    "django_browser_reload",
+    "debug_toolbar",
     "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "modelcluster",
@@ -61,29 +63,18 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.middleware.cache.UpdateCacheMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.cache.FetchFromCacheMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
-
-if DEBUG:
-    INSTALLED_APPS.extend(
-        [
-            "django_browser_reload",
-            "debug_toolbar",
-        ]
-    )
-    MIDDLEWARE.extend(
-        [
-            "django_browser_reload.middleware.BrowserReloadMiddleware",
-            "debug_toolbar.middleware.DebugToolbarMiddleware",
-        ]
-    )
-
 
 ROOT_URLCONF = "artifica.urls"
 
@@ -134,21 +125,6 @@ CACHES = {
             "CACHE_URL",
             "cache",
         ),
-    },
-    "renditions": {
-        "BACKEND": os.environ.get(
-            "CACHE_ENGINE",
-            "django.core.cache.backends.dummy.DummyCache",
-        ),
-        "LOCATION": os.environ.get(
-            "CACHE_URL",
-            "cache",
-        ),
-        "TIMEOUT": os.environ.get(
-            "CACHE_TIMEOUT",
-            600,
-        ),
-        "OPTIONS": {"MAX_ENTRIES": 1000},
     },
 }
 
@@ -281,6 +257,6 @@ LOGGING = {
 
 # CSRF tokens
 CSRF_TRUSTED_ORIGINS = os.environ.get(
-    "CSRF_TRUSTED_ORIGINS",
+    "DJANGO_CSRF_TRUSTED_ORIGINS",
     "http://localhost",
 ).split(", ")
