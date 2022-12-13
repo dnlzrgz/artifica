@@ -7,7 +7,7 @@ license = "GPL-3.0-or-later"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.11.0"
 django = "^4.1.2"
 wagtail = "^4.0.4"
 whitenoise = {extras = ["brotli"], version = "^6.2.0"}
@@ -16,15 +16,15 @@ gunicorn = "^20.1.0"
 python-dotenv = "^0.21.0"
 redis = "^4.4.0"
 hiredis = "^2.0.0"
-psycopg2-binary = "^2.9.5"
+django-browser-reload = "^1.6.0"
+django-debug-toolbar = "^3.8.1"
+psycopg2 = "^2.9.5"
 
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.10.0"
 commitizen = "^2.37.0"
 pre-commit = "^2.20.0"
-django-browser-reload = "^1.6.0"
-django-debug-toolbar = "^3.8.1"
 
 [build-system]
 requires = ["poetry-core"]
