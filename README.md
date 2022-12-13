@@ -17,7 +17,11 @@ Artifica is an OS-like Personal Web Portfolio designed following the [Fluent Des
 - Developed following the [the 12-factor methodoly](https://www.12factor.net/).
 - Support for light/dark mode.
 - _Almost_ functional "applets".
-- Ready to deploy on [render](https://render.com/).
+- Ready to deploy on:
+  - [render](https://render.com/).
+  - [Railway](https://railway.app/).
+
+>
 
 ## Stack
 
@@ -61,9 +65,21 @@ git clone https://github.com/daniarlert/artifica
 
 Setup a Python's virtual environment and install the dependencies. I personally prefer to use [poetry](https://python-poetry.org/) but since the requirements are listed in a plain `requirements.txt` you can use any tool you want.
 
-Since Artifica uses modern Front-End libraries like Tailwind CSS and some npm modules, you would also need to have installed Node.js in your development setup.
+```bash
+poetry install
 
-This project also has setup some git hooks, mainly focused on the maintenance of the dependencies and the code format. To activate them, run with the virtual environment activated the following command:
+# Or
+
+python -m pip install -r requirements
+```
+
+Since Artifica uses modern Front-End libraries like Tailwind CSS and some npm modules, you would also need to have installed Node.js in your development setup. To install the necessary dependencies just run:
+
+```bash
+cd artifica/frontend && npm install
+```
+
+This project also has setup some git hooks focused on the maintenance of the dependencies and the code format. To activate them, run with the virtual environment activated the following command:
 
 ```bash
 pre-commit install
@@ -85,12 +101,17 @@ For development, the only `env` variable that you'll need is `DEBUG` whose value
 DEBUG=on
 ```
 
-You can also set `env` variables related to logging, the database and the cache to be used:
+> If instead of using `manage.py runserver` you want to use the `entrypoint.sh` you'll need to also specify a `PORT` `env` variable.
 
 For production is recommended to set the below `env` variables.
 
 ```plain
-ALLOWED_HOSTS=
+DJANGO_ALLOWED_HOSTS=
+DJANGO_CSRF_TRUSTED_ORIGINS=
+DJANGO_SECRET_KEY=
+DJANGO_LOG_LEVEL=
+DJANGO_LOG_BASIC_FILE=
+DJANGO_LOG_DETAILED_FILE=
 
 DATABASE_ENGINE=
 DATABASE_HOST=
@@ -101,12 +122,6 @@ DATABASE_PASSWORD=
 
 CACHE_ENGINE=
 CACHE_URL=
-
-SECRET_KEY=
-
-DJANGO_LOG_LEVEL=
-DJANGO_LOG_BASIC_FILE=
-DJANGO_LOG_DETAILED_FILE=
 ```
 
 Other `env` variables may be needed depending on your deployment pipeline. For example, for render you will need to add the `RENDER_EXTERNAL_HOSTNAME` variable.
@@ -141,6 +156,12 @@ CACHE_URL=redis://127.0.0.1:6379
 
 ## Database
 
+### SQLite
+
+> TODO:
+
+### PostgreSQL
+
 > TODO:
 
 ## Deploy
@@ -150,6 +171,12 @@ CACHE_URL=redis://127.0.0.1:6379
 If you're going to deploy this project to [render](render.com) It's recommended to check first their [quickstart guide](https://render.com/docs/deploy-django).
 
 Although this project contains a `render.yaml` file, unless you modify it, the deployment will need to be manual as specified in the guide mentioned above.
+
+### Railway
+
+To deploy this project on [Railway](https://railway.app/) first create a new project with a Redis and a PostgreSQL services. Then, connect your cloned Artifica repository to Railway and it will pick up automatically the `Dockerfile`. Now set all the necessary `env` variables and you'll be good to go.
+
+For more information about Railway just go to their [documentation](https://docs.railway.app/).
 
 ## Docker
 
