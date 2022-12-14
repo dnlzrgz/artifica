@@ -26,7 +26,7 @@ draftjs-exporter==2.1.7 ; python_full_version >= "3.11.0" and python_full_versio
 et-xmlfile==1.1.0 ; python_full_version >= "3.11.0" and python_full_version < "4.0.0"
 filelock==3.8.2 ; python_full_version >= "3.11.0" and python_full_version < "4.0.0"
 gunicorn==20.1.0 ; python_full_version >= "3.11.0" and python_full_version < "4.0.0"
-hiredis==2.0.0 ; python_full_version >= "3.11.0" and python_full_version < "4.0.0"
+hiredis==2.1.0 ; python_full_version >= "3.11.0" and python_full_version < "4.0.0"
 html5lib==1.1 ; python_full_version >= "3.11.0" and python_full_version < "4.0.0"
 identify==2.5.9 ; python_full_version >= "3.11.0" and python_full_version < "4.0.0"
 idna==3.4 ; python_full_version >= "3.11.0" and python_version < "4"
