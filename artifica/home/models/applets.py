@@ -21,7 +21,6 @@ class ButtonApplet(StructBlock):
         template = "home/applets/button_applet.html"
 
     title = CharBlock(max_length=20)
-    description = CharBlock()
     url = URLBlock()
 
 
@@ -196,8 +195,8 @@ class AppletsBlock(StreamBlock):
     notes_applet = NotesApplet()
     pomodoro_applet = PomodoroApplet()
     social_links_applet = SocialLinksApplet()
-    # testimonials_applet = TestimonialsApplet()
     textual_applet = TextualApplet()
     timeline_applet = TimelineApplet()
     todo_applet = TodoApplet()
+    # testimonials_applet = TestimonialsApplet()
     # video_applet = VideoApplet()
