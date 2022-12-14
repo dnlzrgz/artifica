@@ -9,6 +9,7 @@ import { isOverlapping, randomPosition } from "./position";
 const applets = [...document.querySelectorAll(".applet")];
 const mdSize = 768;
 const appletsMinOverlap = 0.5;
+const maxAttempts = 10;
 
 let zIndex = 1;
 
@@ -26,8 +27,9 @@ window.addEventListener("load", () => {
   if (window.innerWidth > mdSize) {
     applets.forEach((applet) => {
       let overlapping = true;
+      let attempts = 0;
 
-      while (overlapping) {
+      while (overlapping && attempts < maxAttempts) {
         randomPosition(applet);
         overlapping = false;
 
@@ -40,6 +42,12 @@ window.addEventListener("load", () => {
             break;
           }
         }
+
+        if (!overlapping) {
+          break;
+        }
+
+        attempts++;
       }
     });
   }
