@@ -15,21 +15,18 @@ module.exports = {
         1: 1,
       },
       animation: {
-        blob: "blob 9s infinite",
+        gradient: "gradient 9s ease infinite",
       },
       keyframes: {
-        blob: {
+        gradient: {
           "0%": {
-            transform: "translate(0, 0) scale(1)",
+            backgroundPosition: "100% 0",
           },
-          "33%": {
-            transform: "translate(calc(100vw/3), calc(100vh/3)) scale(1.1)",
-          },
-          "66%": {
-            transform: "translate(calc(100vw/6), calc(100vh/-6)) scale(0.9)",
+          "50%": {
+            backgroundPosition: "0% 0",
           },
           "100%": {
-            transform: "translate(0, 0) scale(1)",
+            backgroundPosition: "100% 0",
           },
         },
       },
