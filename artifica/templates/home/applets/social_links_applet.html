@@ -3,7 +3,7 @@
   id="dropdown-top-button"
   data-dropdown-toggle="dropdownTop"
   data-dropdown-placement="top"
-  class="applet applet--button w-full md:w-auto flex items-center justify-center gap-x-4"
+  class="applet applet--button flex items-center justify-center gap-x-4"
   type="button"
 >
   <span class="text-stone-900 dark:text-slate-50 text-xl md:text-lg"
@@ -24,11 +24,11 @@
 <!-- Dropdown menu -->
 <div
   id="dropdownTop"
-  class="hidden md:absolute bg-stone-50 dark:bg-slate-900 rounded-lg divide-y divide-stone-100 dark:divide-slate-700 border border-stone-100 dark:border-slate-900 shadow-lg"
+  class="hidden relative w-full md:w-52 bg-stone-50 dark:bg-slate-900 rounded-lg divide-y divide-stone-100 dark:divide-slate-700 border border-stone-100 dark:border-slate-900 shadow-lg"
   style="z-index: 999"
 >
   <ul
-    class="text-md py-3 px-2 max-w-lg text-stone-900 dark:text-slate-50"
+    class="text-md py-3 px-2 text-stone-900 dark:text-slate-50"
     aria-labelledby="dropdownTopButton"
   >
     {% for link in value.links %}
