@@ -17,7 +17,6 @@
     "@interactjs/actions": "^1.10.17",
     "@interactjs/auto-start": "^1.10.17",
     "@interactjs/interact": "^1.10.17",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.7",
     "concurrently": "^7.5.0",
     "esbuild": "^0.15.12",
