@@ -3,16 +3,14 @@
   id="dropdown-top-button"
   data-dropdown-toggle="dropdownTop"
   data-dropdown-placement="top"
-  class="applet applet--button flex items-center justify-center gap-x-4"
+  class="applet applet--button flex items-center justify-center gap-x-3"
   type="button"
 >
-  <span class="text-stone-900 dark:text-slate-50 text-xl md:text-lg"
-    >{{value.title|title}}</span
-  >
+  {{value.title|title}}
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 2048 2048"
-    class="w-3 h-3 fill-stone-900 dark:fill-slate-50"
+    class="w-3 h-3 fill-slate-900 dark:fill-slate-50"
     focusable="false"
   >
     <path
@@ -24,24 +22,24 @@
 <!-- Dropdown menu -->
 <div
   id="dropdownTop"
-  class="hidden relative w-full md:w-52 bg-stone-50 dark:bg-slate-900 rounded-lg divide-y divide-stone-100 dark:divide-slate-700 border border-stone-100 dark:border-slate-900 shadow-lg"
+  class="hidden relative w-full max-w-md bg-slate-50 dark:bg-slate-900 rounded-lg divide-y divide-slate-100 dark:divide-slate-700 border border-slate-100 dark:border-slate-900 shadow-lg"
   style="z-index: 999"
 >
   <ul
-    class="text-md py-3 px-2 text-stone-900 dark:text-slate-50"
+    class="flex flex-col gap-y-3 prose dark:prose-invert prose-li:m-0 prose-a:no-underline list-none p-3"
     aria-labelledby="dropdownTopButton"
   >
     {% for link in value.links %}
     <li>
       <a
         href="{{link.url}}"
-        class="flex items-center justify-center gap-x-3 rounded-md py-3 px-6 hover:bg-stone-100 dark:hover:bg-slate-800"
+        class="flex items-center gap-x-3 rounded-md py-3 px-6 hover:bg-slate-100 dark:hover:bg-slate-800"
       >
-        <span>{{link.title|title}}</span>
+        {{link.title|title}}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 2048 2048"
-          class="w-2 h-2 fill-stone-900 dark:fill-slate-50"
+          class="w-2 h-2 fill-slate-900 dark:fill-slate-50"
           focusable="false"
         >
           <path
