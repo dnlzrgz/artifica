@@ -21,8 +21,6 @@ Artifica is an OS-like Personal Web Portfolio designed following the [Fluent Des
   - [render](https://render.com/).
   - [Railway](https://railway.app/).
 
->
-
 ## Stack
 
 - Django
@@ -181,6 +179,8 @@ For more information about Railway just go to their [documentation](https://docs
 ## Docker
 
 ### Docker image
+
+> I decided to use a `slim` base Docker image instead of an `alpine` one. If you want to learn more about the "why" please, read [this article](https://pythonspeed.com/articles/alpine-docker-python/).
 
 > TODO:
 

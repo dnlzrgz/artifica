@@ -1,11 +1,23 @@
-## Unreleased
+## v0.9.0 (2022-12-19)
 
 ### Feat
 
+- **home**: improve text related styles
+- **home**: change background to animated gradient
+- **home**: improve applet sizes on medium devices
 - add cache middleware
 - update to python3.11
 - add debug tool for dev environment
 - add CSRF env variable support
+
+### Fix
+
+- **home**: fix issue with infinite loop while positioning the applets
+- **home**: fix issue with scroll on mobile devices
+
+### Refactor
+
+- **home**: remove description from button applet
 
 ### Perf
 

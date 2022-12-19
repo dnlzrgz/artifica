@@ -3,21 +3,18 @@
     <h1>{{value.title|title}}</h1>
   </header>
 
-  <main class="flex flex-col items-center justify-around px-6 pt-3 pb-6">
+  <main
+    class="flex flex-col items-center prose-h2:font-normal prose-h2:m-0 prose-h2:mb-3 prose-h2:text-7xl justify-around px-6 py-6"
+  >
     <div class="text-center mb-9">
-      <p
-        id="pomodoroDisplay"
-        class="flex tabular-nums text-7xl font-normal text-stone-900 dark:text-slate-50"
-      >
-        25:00
-      </p>
+      <h2 id="pomodoroDisplay" class="tabular-nums">25:00</h2>
     </div>
 
     <button type="button" id="pomodoroStart" class="pomodoro__button">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 2048 2048"
-        class="w-4 h-4 fill-stone-50 dark:fill-slate-900"
+        class="w-4 h-4 fill-slate-50 dark:fill-slate-900"
         focusable="false"
       >
         <path d="M1792 1024L512 1920V128l1280 896z"></path>
@@ -29,7 +26,7 @@
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 2048 2048"
-        class="w-4 h-4 fill-stone-50 dark:fill-slate-900"
+        class="w-4 h-4 fill-slate-50 dark:fill-slate-900"
         focusable="false"
       >
         <path d="M128 128h1792v1792H128V128z"></path>

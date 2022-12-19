@@ -11,7 +11,9 @@
 <div
   class="absolute w-full h-full md:overflow-hidden flex md:flex-none flex-col justify-items-center gap-3 py-9 px-3 sm:px-12 md:p-0"
 >
-  {{ page.applets }}
+  {% with applet=page.applets  %}
+    {{ applet }}
+  {% endwith %}
 </div>
 
 {% endblock content %}

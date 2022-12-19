@@ -11,9 +11,6 @@ module.exports = {
   },
   theme: {
     extend: {
-      zIndex: {
-        1: 1,
-      },
       animation: {
         gradient: "gradient 9s ease infinite",
       },
@@ -30,7 +27,10 @@ module.exports = {
           },
         },
       },
+      zIndex: {
+        1: 1,
+      },
     },
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [require("@tailwindcss/typography"), require("flowbite/plugin")],
 };

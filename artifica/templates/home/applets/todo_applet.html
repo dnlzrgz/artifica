@@ -1,35 +1,31 @@
 <article
   draggable="true"
   id="todo"
-  class="applet border-none bg-blue-400 bg-gradient-to-b from-blue-500 to-blue-400 dark:bg-slate-900 dark:from-slate-900 dark:to-slate-900 w-full md:max-w-sm"
+  class="applet border-none bg-blue-400 bg-gradient-to-b from-blue-500 to-blue-400 dark:bg-slate-900 dark:from-slate-900 dark:to-slate-900 w-full md:max-w-md"
 >
   <header
-    class="flex items-center justify-start gap-x-1 pt-10 px-6 rounded-t-lg"
+    class="flex items-center justify-start gap-x-1 prose-h1:font-semibold prose-h1:text-xl prose-h1:m-0 prose-h1:text-slate-50 dark:prose-h1:text-teal-400 pt-6 py-3 px-6 rounded-t-lg"
   >
-    <span class="text-xl">🍉</span>
-    <h1 class="text-xl text-stone-50 dark:text-teal-400 font-bold">
-      {{value.title|title}}
-    </h1>
+    <h1>🍉 {{value.title|title}}</h1>
   </header>
 
-  <main class="py-6 px-6">
+  <main
+    class="prose-ul:m-0 prose-ul:p-0 prose-li:m-0 prose-li:list-none py-3 px-6"
+  >
     <ul class="flex flex-col gap-y-1">
       {% for task in value.tasks %} {% with slugtask=task|slugify %}
       <li
-        class="flex items-center rounded-md bg-stone-50 dark:bg-slate-800 pl-3 pr-12 py-4 shadow-sm"
+        class="flex items-center rounded-md bg-slate-50 dark:bg-slate-800 pl-3 pr-6 py-3 shadow-sm"
       >
         <input
           type="checkbox"
           name="todo-{{slugtask}}"
           id="todo-{{slugtask}}"
-          class="w-5 h-5 text-blue-600 dark:text-teal-400 bg-stone-50 dark:bg-slate-900 rounded-full border-stone-700 dark:border-slate-800 focus:ring-blue-400 dark:focus:ring-teal-400 dark:ring-offset-stone-800 focus:ring-2"
+          class="w-5 h-5 text-blue-600 dark:text-teal-400 bg-slate-50 dark:bg-slate-900 rounded-full border-slate-700 dark:border-slate-800 focus:ring-blue-400 dark:focus:ring-teal-400 dark:ring-offset-slate-800 focus:ring-2"
         />
-        <label
-          for="todo-{{slugtask}}"
-          class="ml-3 text-stone-900 dark:text-slate-50"
+        <label for="todo-{{slugtask}}" class="leading-normal ml-3"
+          >{{task}}</label
         >
-          {{task}}
-        </label>
       </li>
       {% endwith %} {% endfor %}
     </ul>
@@ -39,7 +35,7 @@
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 2048 2048"
-          class="w-4 h-4 fill-stone-900 dark:fill-slate-50"
+          class="w-4 h-4 fill-slate-900 dark:fill-slate-50"
           focusable="false"
         >
           <path
@@ -49,7 +45,7 @@
       </span>
       <input
         type="text"
-        class="px-3 pl-12 py-3 w-full rounded-md border-none bg-stone-50 dark:bg-slate-800 text-stone-900 dark:text-slate-50 placeholder-stone-900 dark:placeholder-slate-50"
+        class="px-3 pl-12 py-3 w-full rounded-md border-none bg-slate-50 dark:bg-slate-800 prose dark:prose-invert"
         placeholder="Add a new task"
         autocomplete="off"
         autocapitalize="on"
