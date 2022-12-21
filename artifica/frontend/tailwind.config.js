@@ -14,6 +14,9 @@ module.exports = {
       animation: {
         gradient: "gradient 9s ease infinite",
       },
+      opacity: {
+        min: 0.01,
+      },
       keyframes: {
         gradient: {
           "0%": {

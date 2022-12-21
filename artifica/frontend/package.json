@@ -3,7 +3,7 @@
     "watch-css": "tailwindcss -i ./src/css/style.css -o ./build/css/style.css --watch",
     "watch-js": "esbuild ./src/js/main.js --bundle --watch=forever --outfile=./build/js/main.js",
     "watch": "concurrently \"npm run watch-css\" \"npm run watch-js\"",
-    "build-css": "tailwindcss build -i ./src/css/*.css -o ./build/css/style.css -m",
+    "build-css": "tailwindcss build -i ./src/css/*.css -o ./build/css/style.css --minify",
     "build-js": "esbuild ./src/js/main.js --bundle --minify --sourcemap --outfile=./build/js/main.js",
     "build": "npm run build-css; npm run build-js",
     "lint": "prettier --write ."
