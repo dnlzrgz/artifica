@@ -17,9 +17,7 @@ Artifica is an OS-like Personal Web Portfolio designed following the [Fluent Des
 - Developed following the [the 12-factor methodoly](https://www.12factor.net/).
 - Support for light/dark mode.
 - _Almost_ functional "applets".
-- Ready to deploy on:
-  - [render](https://render.com/).
-  - [Railway](https://railway.app/).
+- Ready to deploy.
 
 ## Stack
 
@@ -132,25 +130,14 @@ Other `env` variables may be needed depending on your deployment pipeline. For e
 
 ## Cache
 
-Artifica is ready to be used with both Memcached and Redis. If the `CACHE_ENGINE` and `CACHE_URL` `env` variables are not setup. It will use [dummy caching](https://docs.djangoproject.com/en/4.1/topics/cache/#dummy-caching-for-development).
-
-### Memcached
-
-For Memcached, Artifica uses [pymemcache](https://pypi.org/project/pymemcache/). So the only thing you need to do is to setup the following `env` variables as follows:
-
-```env
-CACHE_ENGINE=django.core.cache.backends.memcached.PyMemcacheCache
-CACHE_URL=memcache://127.0.0.1:11211
-```
-
-### Redis
-
-For Redis, Artifica comes with [redis-py](https://pypi.org/project/redis/) and [hiredis](https://pypi.org/project/hiredis/). To start using Redis add the following `env` variables to your `.env` file:
+Artifica comes with [redis-py](https://pypi.org/project/redis/) and [hiredis](https://pypi.org/project/hiredis/). To start using Redis add the following `env` variables to your `.env` file:
 
 ```env
 CACHE_ENGINE=django.core.cache.backends.redis.RedisCache
 CACHE_URL=redis://127.0.0.1:6379
 ```
+
+If the `CACHE_ENGINE` and `CACHE_URL` `env` variables are not setup. It will use [dummy caching](https://docs.djangoproject.com/en/4.1/topics/cache/#dummy-caching-for-development).
 
 ## Database
 

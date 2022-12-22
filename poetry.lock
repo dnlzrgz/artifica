@@ -1013,18 +1013,6 @@ files = [
 ]
 
 [[package]]
-name = "pymemcache"
-version = "4.0.0"
-description = "A comprehensive, fast, pure Python memcached client"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "pymemcache-4.0.0-py2.py3-none-any.whl", hash = "sha256:f507bc20e0dc8d562f8df9d872107a278df049fa496805c1431b926f3ddd0eab"},
-    {file = "pymemcache-4.0.0.tar.gz", hash = "sha256:27bf9bd1bbc1e20f83633208620d56de50f14185055e49504f4f5e94e94aff94"},
-]
-
-[[package]]
 name = "python-dotenv"
 version = "0.21.0"
 description = "Read key-value pairs from a .env file and set them as environment variables"
@@ -1424,4 +1412,4 @@ testing = ["Pillow (>=6.0.0,<10.0.0)", "Wand (>=0.6,<1.0)", "mock (>=3.0,<4.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11.0"
-content-hash = "82702ab0f40d4a64eda5d72afa54a8f9f5d5755f092dcf029ef46101ebb1ac23"
+content-hash = "8a1031e59c5fa94f543489a8166141b6c86ef6ee6b05f3531e3eaacb143ed94b"
