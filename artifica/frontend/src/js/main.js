@@ -3,56 +3,23 @@ import "@interactjs/auto-start";
 import "@interactjs/actions/drag";
 import interact from "@interactjs/interact";
 
-import { isOverlapping, randomPosition } from "./position";
+import { updateColorScheme } from "./colorScheme";
+import { positionApplets } from "./position";
+import { startPomodoro } from "./pomodoro";
+import { startCalendar } from "./calendar";
 
 // constants
 const applets = [...document.querySelectorAll(".applet")];
 const mdSize = 768;
-const appletsMinOverlap = 0.5;
-const maxAttempts = 10;
 
 let zIndex = 1;
 
 window.addEventListener("load", () => {
-  if (
-    localStorage.getItem("color-theme") === "dark" ||
-    (!("color-theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
+  updateColorScheme();
 
   if (window.innerWidth > mdSize) {
-    applets.forEach((applet) => {
-      let overlapping = true;
-      let attempts = 0;
-
-      while (overlapping && attempts < maxAttempts) {
-        randomPosition(applet);
-        overlapping = false;
-
-        for (const otherApplet of applets) {
-          if (
-            otherApplet !== applet &&
-            isOverlapping(appletsMinOverlap, applet, otherApplet)
-          ) {
-            overlapping = true;
-            break;
-          }
-        }
-
-        if (!overlapping) {
-          break;
-        }
-
-        attempts++;
-      }
-    });
+    positionApplets(applets);
   }
-
-  applets.forEach((applet) => (applet.style.opacity = 1));
 });
 
 // interact.js
@@ -80,7 +47,7 @@ interact(".applet").draggable({
   },
 });
 
-// z-index
+// z-index.
 applets.forEach((applet) => {
   applet.addEventListener("mousedown", () => {
     zIndex++;
@@ -93,54 +60,12 @@ applets.forEach((applet) => {
   });
 });
 
-// Pomodoro applet
+// start pomodoro applet.
 if (document.body.contains(document.getElementById("pomodoro"))) {
-  const display = document.getElementById("pomodoroDisplay");
-  const startBtn = document.getElementById("pomodoroStart");
-  const stopBtn = document.getElementById("pomodoroStop");
-  const sessionDuration = 25;
+  startPomodoro();
+}
 
-  let interval;
-
-  const start = () => {
-    let seconds = 59;
-    let workMinutes = sessionDuration - 1;
-
-    interval = setInterval(() => {
-      startBtn.classList.remove("flex");
-      startBtn.classList.add("hidden");
-      stopBtn.classList.remove("hidden");
-      stopBtn.classList.add("flex");
-
-      const padMins = `${workMinutes}`.padStart(2, "0");
-      const padSecs = `${seconds}`.padStart(2, "0");
-      display.innerText = `${padMins}:${padSecs}`;
-
-      seconds = seconds - 1;
-
-      if (seconds === 0) {
-        workMinutes--;
-
-        if (workMinutes === -1 && seconds === 0) {
-          stop();
-        } else {
-          seconds = 59;
-        }
-      }
-    }, 1000);
-  };
-
-  const stop = () => {
-    clearInterval(interval);
-
-    display.innerText = "25:00";
-
-    stopBtn.classList.remove("flex");
-    stopBtn.classList.add("hidden");
-    startBtn.classList.remove("hidden");
-    startBtn.classList.add("flex");
-  };
-
-  startBtn.addEventListener("click", start);
-  stopBtn.addEventListener("click", stop);
+// Start calendar applet.
+if (document.body.contains(document.getElementById("calendar"))) {
+  startCalendar();
 }

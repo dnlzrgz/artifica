@@ -77,6 +77,17 @@ class PomodoroApplet(StructBlock):
     title = CharBlock(max_length=20)
 
 
+class CalendarApplet(StructBlock):
+    """
+    Applet to display a calendar.
+    """
+
+    class Meta:
+        template = "home/applets/calendar_applet.html"
+
+    title = CharBlock(max_length=20)
+
+
 class SocialLinksApplet(StructBlock):
     """
     Applet to display a list of links for social media like Instagram
@@ -194,6 +205,7 @@ class AppletsBlock(StreamBlock):
     contact_applet = ContactApplet()
     notes_applet = NotesApplet()
     pomodoro_applet = PomodoroApplet()
+    calendar_applet = CalendarApplet()
     social_links_applet = SocialLinksApplet()
     textual_applet = TextualApplet()
     timeline_applet = TimelineApplet()

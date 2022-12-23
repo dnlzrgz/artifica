@@ -1,4 +1,4 @@
-## v0.9.0 (2022-12-19)
+## Unreleased
 
 ### Feat
 
@@ -12,6 +12,7 @@
 
 ### Fix
 
+- **home**: fix issue with LCP due to initial opacity
 - **home**: fix issue with infinite loop while positioning the applets
 - **home**: fix issue with scroll on mobile devices
 

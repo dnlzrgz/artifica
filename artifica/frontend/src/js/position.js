@@ -1,7 +1,10 @@
-export const rand = (min, max) => Math.random() * (max - min) + min;
+const appletsMinOverlap = 0.3;
+const maxAttempts = 14;
+
+const rand = (min, max) => Math.random() * (max - min) + min;
 
 // Checks if an applet is overlapping with anoter applet by more than a minimum amount.
-export const isOverlapping = (minOverlap, applet1, applet2) => {
+const isOverlapping = (minOverlap, applet1, applet2) => {
   const rect1 = applet1.getBoundingClientRect();
   const rect2 = applet2.getBoundingClientRect();
 
@@ -15,7 +18,7 @@ export const isOverlapping = (minOverlap, applet1, applet2) => {
 
 // Positions an applet at a random location within the screen
 // bounds.
-export const randomPosition = (applet) => {
+const randomPosition = (applet) => {
   const x = rand(0, window.innerWidth - applet.offsetWidth);
   const y = rand(0, window.innerHeight - applet.offsetHeight);
 
@@ -25,4 +28,34 @@ export const randomPosition = (applet) => {
   // update the posiion attributes
   applet.setAttribute("data-x", x);
   applet.setAttribute("data-y", y);
+};
+
+export const positionApplets = (applets) => {
+  applets.forEach((applet) => {
+    let overlapping = true;
+    let attempts = 0;
+
+    while (overlapping && attempts < maxAttempts) {
+      randomPosition(applet);
+      overlapping = false;
+
+      for (const otherApplet of applets) {
+        if (
+          otherApplet !== applet &&
+          isOverlapping(appletsMinOverlap, applet, otherApplet)
+        ) {
+          overlapping = true;
+          break;
+        }
+      }
+
+      if (!overlapping) {
+        break;
+      }
+
+      attempts++;
+    }
+  });
+
+  applets.forEach((applet) => (applet.style.opacity = 1));
 };
