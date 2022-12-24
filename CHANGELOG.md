@@ -2,6 +2,7 @@
 
 ### Feat
 
+- **home**: add calendar applet
 - **home**: improve text related styles
 - **home**: change background to animated gradient
 - **home**: improve applet sizes on medium devices
